@@ -29,6 +29,10 @@ const Product = db.define('product', {
       validate: {
         isURL: true
       }
+  },
+  quantity: {
+    type: Sequelize.INTEGER,
+    allowNull: false
   }
 })
 
