@@ -36,7 +36,7 @@ router.put("/:userId", async (req, res, next) => {
       },
       returning: true,
     });
-    res.send(updateUser);
+    res.send(updateUser[1][0]);
   } catch (err) {
     next(err);
   }
