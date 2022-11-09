@@ -1,37 +1,46 @@
-const Sequelize = require('sequelize')
-const db = require('../db')
+const Sequelize = require('sequelize');
+const db = require('../db');
 const axios = require('axios');
-
 
 const Product = db.define('product', {
   name: {
     type: Sequelize.STRING,
     unique: true,
-    allowNull: false
+    allowNull: false,
   },
   type: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   style: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
   },
   price: {
-    type: Sequelize.DECIMAL(10,2),
-    allowNull: false
+    type: Sequelize.DECIMAL(10, 2),
+    allowNull: false,
+    defaultValue: 0.0,
+  },
+  quantity: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    defaultValue: 0,
   },
   description: {
     type: Sequelize.TEXT,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
-  image: {
-    type: Sequelize.STRING, 
-      validate: {
-        isURL: true
-      }
-  }
-})
+  imageUrl: {
+    type: Sequelize.STRING,
+    validate: {
+      isURL: true,
+    },
+  },
+});
 
-module.exports = Product
-
-
+module.exports = Product;
