@@ -3,7 +3,7 @@ const {
   models: { User },
 } = require("../db");
 module.exports = router;
-
+// testing merge
 // Get all users /api/users
 router.get("/", async (req, res, next) => {
   try {
