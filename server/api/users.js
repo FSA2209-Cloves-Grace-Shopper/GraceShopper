@@ -10,7 +10,7 @@ router.get("/", async (req, res, next) => {
     const users = await User.findAll({
       attributes: ["id", "email"],
     });
-    res.json(users);
+    res.send(users);
   } catch (err) {
     next(err);
   }
@@ -21,7 +21,7 @@ router.get("/:userId", async (req, res, next) => {
     const user = await User.findByPk(req.params.userId, {
       attributes: ["id", "email"],
     });
-    res.json(user);
+    res.send(user);
   } catch (err) {
     next(err);
   }
@@ -45,7 +45,7 @@ router.put("/:userId", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     const newUser = await User.create(req.body);
-    res.json(newUser);
+    res.send(newUser);
   } catch (err) {
     next(err);
   }
