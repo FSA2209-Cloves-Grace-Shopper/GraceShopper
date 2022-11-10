@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProduct } from '../store/singleProduct';
+import { addItemThunk } from '../store/cart';
 
 const ViewSingleProduct = (props) => {
   const [qty, setQty] = useState(1);
@@ -11,9 +12,22 @@ const ViewSingleProduct = (props) => {
   }, []);
 
   const product = useSelector((state) => state.singleProduct);
+  const user = useSelector((state) => state.auth);
 
   const handleChange = (evt) => {
     setQty(evt.target.value);
+  };
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    const orderProduct = {
+      userId: user.id,
+      unitPrice: product.price,
+      quantity: qty,
+      totalPrice: product.price * qty,
+      productId: product.id,
+    };
+    dispatch(addItemThunk(orderProduct));
   };
 
   return (
@@ -21,7 +35,7 @@ const ViewSingleProduct = (props) => {
       <h2 className="singleProductTitle">
         {product.name} - ${product.price}
       </h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Quantity</label>
         <input
           className="quantityInput"
