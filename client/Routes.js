@@ -8,7 +8,6 @@ import ViewSingleProduct from './components/ViewSingleProduct';
 import Cart from './components/Cart';
 import { me } from './store';
 
-
 /**
  * COMPONENT
  */
