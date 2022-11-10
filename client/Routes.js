@@ -4,6 +4,7 @@ import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
 import ViewSingleProduct from './components/ViewSingleProduct';
+import Cart from './components/Cart';
 import { me } from './store';
 
 /**

@@ -10,6 +10,25 @@ label {
   display: block;
 }
 
+.singleProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.singleProduct form label {
+  display: inline-block;
+}
+
+.singleProduct img {
+  max-height: 400px;
+}
+
+.quantityInput {
+  width: 10px;
+  margin: 5px;
+}
+
 nav a {
   display: inline-block;
   margin: 1em;
