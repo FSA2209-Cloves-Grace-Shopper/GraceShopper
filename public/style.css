@@ -29,9 +29,16 @@ label {
   margin: 5px;
 }
 
+nav {
+  background-image: linear-gradient(to right top, #d47f08, #ac5326, #77332a, #3e1c1f, #000000);
+  border: 3px solid #a39b9bb9;
+}
+
 nav a {
   display: inline-block;
   margin: 1em;
+  color: rgb(255, 247, 0);
+  font-size: large;
 }
 
 form div {
