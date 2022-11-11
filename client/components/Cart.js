@@ -3,6 +3,7 @@ import CheckoutForm from './CheckoutForm';
 import CartSubtotal from './CartSubtotal';
 
 const Cart = (props) => {
+  console.log(props.auth);
   return (
     <>
       <div>Cart</div>
