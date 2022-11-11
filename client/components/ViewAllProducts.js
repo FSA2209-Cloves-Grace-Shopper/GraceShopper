@@ -20,8 +20,9 @@ const ViewAllProducts = () => {
         <li key={product.id}>
           <p>Brand: {product.name}</p>
           <p>Type: {product.type}</p>
-          <p>Description: {product.description}</p>
+          <p>Style: {product.style}</p>
           <p>Price: {product.price}</p>
+          <img src={product.imageUrl}/>
         </li> 
       ))}
       </ul>
