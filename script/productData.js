@@ -1,3 +1,4 @@
+// Manual Data
 const productData = [
     {
     name: 'Gibson 2020 Les Paul Modern Solid Body',

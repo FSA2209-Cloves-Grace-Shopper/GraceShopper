@@ -15,13 +15,13 @@ const {
 async function seed() {
   await db.sync({ force: true }); // clears db and matches models to tables
   console.log('db synced!');
-  // Creating Users
+  // Creating Users from userData.js
   const users = await Promise.all([
     User.bulkCreate(userData)
   ]);
   console.log(`Users seeded successfully`);
 
-  // Creating Products
+  // Creating Products from productData.js
   const products = await Promise.all([
     Product.bulkCreate(productData),
   ]);

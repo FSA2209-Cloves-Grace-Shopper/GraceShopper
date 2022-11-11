@@ -16,6 +16,7 @@ const ViewAllProducts = () => {
       <h2 className="allProductsTitle">
         {'PRODUCTS'}
       </h2>
+      // Clean this up
       <ul>{products.map((product) => (
         <li key={product.id}>
           <p>Brand: {product.name}</p>

@@ -1,4 +1,5 @@
- const userData = [   
+// Manual Data
+const userData = [   
   {
     firstName: 'Scott',
     "lastName": 'Irwin',
