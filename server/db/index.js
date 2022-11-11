@@ -13,6 +13,9 @@ const OrderHistory = require('./models/OrderHistory');
 Order.belongsToMany(Product, { through: OrderProduct });
 Product.belongsToMany(Order, { through: OrderProduct });
 
+// Product.belongsTo(OrderProduct);
+// OrderProduct.hasMany(Product);
+
 User.hasMany(Order);
 Order.belongsTo(User);
 
