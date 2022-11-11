@@ -22,9 +22,7 @@ const ViewAllProducts = () => {
             <p>Type: {product.type}</p>
             <p>Style: {product.style}</p>
             <p>Price: {product.price}</p>
-            <a href={`/products/${product.id}`}>
-              <img src={product.imageUrl} />
-            </a>
+            <img src={product.imageUrl} />
           </li>
         ))}
       </ul>
