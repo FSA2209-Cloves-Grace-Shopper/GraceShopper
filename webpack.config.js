@@ -1,10 +1,11 @@
 module.exports = {
-  entry: [
-    './client/index.js'
-  ],
+  entry: ['./client/index.js'],
   output: {
     path: __dirname,
-    filename: './public/bundle.js'
+    filename: './public/bundle.js',
+  },
+  devServer: {
+    watchContentBase: true,
   },
   devtool: 'source-map',
   module: {
@@ -14,11 +15,9 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
-          presets: [
-            '@babel/preset-react'
-          ]
-        }
-      }
-    ]
-  }
-}
+          presets: ['@babel/preset-react'],
+        },
+      },
+    ],
+  },
+};
