@@ -24,6 +24,7 @@ const ViewSingleProduct = (props) => {
       userId: user.id,
       unitPrice: product.price,
       quantity: qty,
+      // productSubtotal
       totalPrice: product.price * qty,
       productId: product.id,
     };

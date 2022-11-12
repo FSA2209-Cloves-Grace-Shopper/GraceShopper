@@ -34,7 +34,7 @@ const productData = [
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/EG3.jpeg',
     },
     {
-    name: 'Gibson Les Paul Traditional Pro V Solid Body',
+    name: 'Gibson Les Paul trad Pro V Solid Body',
     type: 'Guitar',
     style: 'Electric',
     price: 1699.99,
@@ -89,7 +89,7 @@ const productData = [
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/EG3.jpeg',
     },
     {
-    name: 'Gibson Les Paul Traditional Pro ',
+    name: 'Gibson Les Paul trad Pro ',
     type: 'Guitar',
     style: 'Electric',
     price: 1499.99,
@@ -144,7 +144,7 @@ const productData = [
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/EG3.jpeg',
     },
     {
-    name: 'Gibson Les Paul Traditional Pro V Solid',
+    name: 'Gibson Les Paul trad Pro V Solid',
     type: 'Guitar',
     style: 'Electric',
     price: 1699.99,
@@ -199,7 +199,7 @@ const productData = [
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/EG3.jpeg',
     },
     {
-    name: 'Gibson Les Paul Traditional',
+    name: 'Gibson Les Paul trad',
     type: 'Guitar',
     style: 'Electric',
     price: 1499.99,
@@ -392,7 +392,7 @@ const productData = [
     price: 399.99,
     quantity: 2,
     description:
-      'Sporting a gorgeous finish, the Rogue RM-100A is a well-built, traditional A-model mandolin. It features clean workmanship throughout and projects a bright tone with lots of bark. With an easy-to-play neck and adjustable bridge, the RM-100A is perfect for beginners who wish to play bluegrass or any other style of music. Finishing touches include chrome tuners and nickel-plated frets.',
+      'Sporting a gorgeous finish, the Rogue RM-100A is a well-built, trad A-model mandolin. It features clean workmanship throughout and projects a bright tone with lots of bark. With an easy-to-play neck and adjustable bridge, the RM-100A is perfect for beginners who wish to play bluegrass or any other style of music. Finishing touches include chrome tuners and nickel-plated frets.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/MAN1.jpeg',
     },
@@ -414,7 +414,7 @@ const productData = [
     price: 1069,
     quantity: 3,
     description:
-      'The Dirty 30s Mandolin is the perfect instrument for troubadours, songwriters or multi-instrumentalists who want a mandolin that delivers classic old-time sound without the price tag of a vintage instrument. The Dirty 30s Mandolin is a traditional A-style with vintage appointments.',
+      'The Dirty 30s Mandolin is the perfect instrument for troubadours, songwriters or multi-instrumentalists who want a mandolin that delivers classic old-time sound without the price tag of a vintage instrument. The Dirty 30s Mandolin is a trad A-style with vintage appointments.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/MAN3.jpeg',
     },
@@ -447,7 +447,7 @@ const productData = [
     price: 399.99,
     quantity: 2,
     description:
-      'Sporting a gorgeous finish, the Rogue RM-100A is a well-built, traditional A-model mandolin. It features clean workmanship throughout and projects a bright tone with lots of bark. With an easy-to-play neck and adjustable bridge, the RM-100A is perfect for beginners who wish to play bluegrass or any other style of music. Finishing touches include chrome tuners and nickel-plated frets.',
+      'Sporting a gorgeous finish, the Rogue RM-100A is a well-built, trad A-model mandolin. It features clean workmanship throughout and projects a bright tone with lots of bark. With an easy-to-play neck and adjustable bridge, the RM-100A is perfect for beginners who wish to play bluegrass or any other style of music. Finishing touches include chrome tuners and nickel-plated frets.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/MAN1.jpeg',
     },
@@ -469,7 +469,7 @@ const productData = [
     price: 1069,
     quantity: 3,
     description:
-      'The Dirty 30s Mandolin is the perfect instrument for troubadours, songwriters or multi-instrumentalists who want a mandolin that delivers classic old-time sound without the price tag of a vintage instrument. The Dirty 30s Mandolin is a traditional A-style with vintage appointments.',
+      'The Dirty 30s Mandolin is the perfect instrument for troubadours, songwriters or multi-instrumentalists who want a mandolin that delivers classic old-time sound without the price tag of a vintage instrument. The Dirty 30s Mandolin is a trad A-style with vintage appointments.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/MAN3.jpeg',
     },
@@ -502,7 +502,7 @@ const productData = [
     price: 399.99,
     quantity: 2,
     description:
-      'Sporting a gorgeous finish, the Rogue RM-100A is a well-built, traditional A-model mandolin. It features clean workmanship throughout and projects a bright tone with lots of bark. With an easy-to-play neck and adjustable bridge, the RM-100A is perfect for beginners who wish to play bluegrass or any other style of music. Finishing touches include chrome tuners and nickel-plated frets.',
+      'Sporting a gorgeous finish, the Rogue RM-100A is a well-built, trad A-model mandolin. It features clean workmanship throughout and projects a bright tone with lots of bark. With an easy-to-play neck and adjustable bridge, the RM-100A is perfect for beginners who wish to play bluegrass or any other style of music. Finishing touches include chrome tuners and nickel-plated frets.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/MAN1.jpeg',
     },
@@ -524,7 +524,7 @@ const productData = [
     price: 1069,
     quantity: 3,
     description:
-      'The Dirty 30s Mandolin is the perfect instrument for troubadours, songwriters or multi-instrumentalists who want a mandolin that delivers classic old-time sound without the price tag of a vintage instrument. The Dirty 30s Mandolin is a traditional A-style with vintage appointments.',
+      'The Dirty 30s Mandolin is the perfect instrument for troubadours, songwriters or multi-instrumentalists who want a mandolin that delivers classic old-time sound without the price tag of a vintage instrument. The Dirty 30s Mandolin is a trad A-style with vintage appointments.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/MAN3.jpeg',
     },
@@ -557,7 +557,7 @@ const productData = [
     price: 779.99,
     quantity: 3,
     description:
-      'This limited-edition Player Jazz Bass Plus Top in Blue Burst delivers everything a bass player expects from a traditional Jazz Bass, but adds a stunning flame maple veneer. Loaded with Player Jazz Bass pickups, this bass is powerful and articulate with well-balanced tone for any number of playing styles. The Blue Burst finish over flame maple makes this bass as stunning visually as it is sonically.',
+      'This limited-edition Player Jazz Bass Plus Top in Blue Burst delivers everything a bass player expects from a trad Jazz Bass, but adds a stunning flame maple veneer. Loaded with Player Jazz Bass pickups, this bass is powerful and articulate with well-balanced tone for any number of playing styles. The Blue Burst finish over flame maple makes this bass as stunning visually as it is sonically.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/BASS1.jpeg',
     },
@@ -612,7 +612,7 @@ const productData = [
     price: 779.99,
     quantity: 2,
     description:
-      'This limited-edition Player Jazz Bass Plus Top in Blue Burst delivers everything a bass player expects from a traditional Jazz Bass, but adds a stunning flame maple veneer. Loaded with Player Jazz Bass pickups, this bass is powerful and articulate with well-balanced tone for any number of playing styles. The Blue Burst finish over flame maple makes this bass as stunning visually as it is sonically.',
+      'This limited-edition Player Jazz Bass Plus Top in Blue Burst delivers everything a bass player expects from a trad Jazz Bass, but adds a stunning flame maple veneer. Loaded with Player Jazz Bass pickups, this bass is powerful and articulate with well-balanced tone for any number of playing styles. The Blue Burst finish over flame maple makes this bass as stunning visually as it is sonically.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/BASS1.jpeg',
     },
@@ -667,7 +667,7 @@ const productData = [
     price: 779.99,
     quantity: 2,
     description:
-      'This limited-edition Player Jazz Bass Plus Top in Blue Burst delivers everything a bass player expects from a traditional Jazz Bass, but adds a stunning flame maple veneer. Loaded with Player Jazz Bass pickups, this bass is powerful and articulate with well-balanced tone for any number of playing styles. The Blue Burst finish over flame maple makes this bass as stunning visually as it is sonically.',
+      'This limited-edition Player Jazz Bass Plus Top in Blue Burst delivers everything a bass player expects from a trad Jazz Bass, but adds a stunning flame maple veneer. Loaded with Player Jazz Bass pickups, this bass is powerful and articulate with well-balanced tone for any number of playing styles. The Blue Burst finish over flame maple makes this bass as stunning visually as it is sonically.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/BASS1.jpeg',
     },
@@ -749,7 +749,7 @@ const productData = [
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/EG3.jpeg',
     },
     {
-    name: 'Gibson Les Paul Traditional Pro V Solid Body B',
+    name: 'Gibson Les Paul trad Pro V Solid Body B',
     type: 'Guitar',
     style: 'Electric',
     price: 1699.99,
@@ -804,7 +804,7 @@ const productData = [
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/EG3.jpeg',
     },
     {
-    name: 'Gibson Les Paul Traditional Pro 2',
+    name: 'Gibson Les Paul trad Pro 2',
     type: 'Guitar',
     style: 'Electric',
     price: 1499.99,
@@ -859,7 +859,7 @@ const productData = [
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/EG3.jpeg',
     },
     {
-    name: 'Gibson Les Paul Traditional Pro V Solid Lite',
+    name: 'Gibson Les Paul trad Pro V Solid Lite',
     type: 'Guitar',
     style: 'Electric',
     price: 1699.99,
@@ -914,7 +914,7 @@ const productData = [
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/EG3.jpeg',
     },
     {
-    name: 'Gibson 1984 Les Paul Traditional',
+    name: 'Gibson 1984 Les Paul trad',
     type: 'Guitar',
     style: 'Electric',
     price: 1499.99,
@@ -1107,7 +1107,7 @@ const productData = [
     price: 399.99,
     quantity: 2,
     description:
-      'Sporting a gorgeous finish, the Rogue RM-100A is a well-built, traditional A-model mandolin. It features clean workmanship throughout and projects a bright tone with lots of bark. With an easy-to-play neck and adjustable bridge, the RM-100A is perfect for beginners who wish to play bluegrass or any other style of music. Finishing touches include chrome tuners and nickel-plated frets.',
+      'Sporting a gorgeous finish, the Rogue RM-100A is a well-built, trad A-model mandolin. It features clean workmanship throughout and projects a bright tone with lots of bark. With an easy-to-play neck and adjustable bridge, the RM-100A is perfect for beginners who wish to play bluegrass or any other style of music. Finishing touches include chrome tuners and nickel-plated frets.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/MAN1.jpeg',
     },
@@ -1129,7 +1129,7 @@ const productData = [
     price: 1069,
     quantity: 3,
     description:
-      'The Dirty 30s Mandolin is the perfect instrument for troubadours, songwriters or multi-instrumentalists who want a mandolin that delivers classic old-time sound without the price tag of a vintage instrument. The Dirty 30s Mandolin is a traditional A-style with vintage appointments.',
+      'The Dirty 30s Mandolin is the perfect instrument for troubadours, songwriters or multi-instrumentalists who want a mandolin that delivers classic old-time sound without the price tag of a vintage instrument. The Dirty 30s Mandolin is a trad A-style with vintage appointments.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/MAN3.jpeg',
     },
@@ -1162,7 +1162,7 @@ const productData = [
     price: 399.99,
     quantity: 2,
     description:
-      'Sporting a gorgeous finish, the Rogue RM-100A is a well-built, traditional A-model mandolin. It features clean workmanship throughout and projects a bright tone with lots of bark. With an easy-to-play neck and adjustable bridge, the RM-100A is perfect for beginners who wish to play bluegrass or any other style of music. Finishing touches include chrome tuners and nickel-plated frets.',
+      'Sporting a gorgeous finish, the Rogue RM-100A is a well-built, trad A-model mandolin. It features clean workmanship throughout and projects a bright tone with lots of bark. With an easy-to-play neck and adjustable bridge, the RM-100A is perfect for beginners who wish to play bluegrass or any other style of music. Finishing touches include chrome tuners and nickel-plated frets.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/MAN1.jpeg',
     },
@@ -1184,7 +1184,7 @@ const productData = [
     price: 1069,
     quantity: 3,
     description:
-      'The Dirty 30s Mandolin is the perfect instrument for troubadours, songwriters or multi-instrumentalists who want a mandolin that delivers classic old-time sound without the price tag of a vintage instrument. The Dirty 30s Mandolin is a traditional A-style with vintage appointments.',
+      'The Dirty 30s Mandolin is the perfect instrument for troubadours, songwriters or multi-instrumentalists who want a mandolin that delivers classic old-time sound without the price tag of a vintage instrument. The Dirty 30s Mandolin is a trad A-style with vintage appointments.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/MAN3.jpeg',
     },
@@ -1217,7 +1217,7 @@ const productData = [
     price: 399.99,
     quantity: 2,
     description:
-      'Sporting a gorgeous finish, the Rogue RM-100A is a well-built, traditional A-model mandolin. It features clean workmanship throughout and projects a bright tone with lots of bark. With an easy-to-play neck and adjustable bridge, the RM-100A is perfect for beginners who wish to play bluegrass or any other style of music. Finishing touches include chrome tuners and nickel-plated frets.',
+      'Sporting a gorgeous finish, the Rogue RM-100A is a well-built, trad A-model mandolin. It features clean workmanship throughout and projects a bright tone with lots of bark. With an easy-to-play neck and adjustable bridge, the RM-100A is perfect for beginners who wish to play bluegrass or any other style of music. Finishing touches include chrome tuners and nickel-plated frets.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/MAN1.jpeg',
     },
@@ -1239,7 +1239,7 @@ const productData = [
     price: 1069,
     quantity: 3,
     description:
-      'The Dirty 30s Mandolin is the perfect instrument for troubadours, songwriters or multi-instrumentalists who want a mandolin that delivers classic old-time sound without the price tag of a vintage instrument. The Dirty 30s Mandolin is a traditional A-style with vintage appointments.',
+      'The Dirty 30s Mandolin is the perfect instrument for troubadours, songwriters or multi-instrumentalists who want a mandolin that delivers classic old-time sound without the price tag of a vintage instrument. The Dirty 30s Mandolin is a trad A-style with vintage appointments.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/MAN3.jpeg',
     },
@@ -1272,7 +1272,7 @@ const productData = [
     price: 779.99,
     quantity: 3,
     description:
-      'This limited-edition Player Jazz Bass Plus Top in Blue Burst delivers everything a bass player expects from a traditional Jazz Bass, but adds a stunning flame maple veneer. Loaded with Player Jazz Bass pickups, this bass is powerful and articulate with well-balanced tone for any number of playing styles. The Blue Burst finish over flame maple makes this bass as stunning visually as it is sonically.',
+      'This limited-edition Player Jazz Bass Plus Top in Blue Burst delivers everything a bass player expects from a trad Jazz Bass, but adds a stunning flame maple veneer. Loaded with Player Jazz Bass pickups, this bass is powerful and articulate with well-balanced tone for any number of playing styles. The Blue Burst finish over flame maple makes this bass as stunning visually as it is sonically.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/BASS1.jpeg',
     },
@@ -1327,7 +1327,7 @@ const productData = [
     price: 779.99,
     quantity: 2,
     description:
-      'This limited-edition Player Jazz Bass Plus Top in Blue Burst delivers everything a bass player expects from a traditional Jazz Bass, but adds a stunning flame maple veneer. Loaded with Player Jazz Bass pickups, this bass is powerful and articulate with well-balanced tone for any number of playing styles. The Blue Burst finish over flame maple makes this bass as stunning visually as it is sonically.',
+      'This limited-edition Player Jazz Bass Plus Top in Blue Burst delivers everything a bass player expects from a trad Jazz Bass, but adds a stunning flame maple veneer. Loaded with Player Jazz Bass pickups, this bass is powerful and articulate with well-balanced tone for any number of playing styles. The Blue Burst finish over flame maple makes this bass as stunning visually as it is sonically.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/BASS1.jpeg',
     },
@@ -1382,7 +1382,7 @@ const productData = [
     price: 779.99,
     quantity: 2,
     description:
-      'This limited-edition Player Jazz Bass Plus Top in Blue Burst delivers everything a bass player expects from a traditional Jazz Bass, but adds a stunning flame maple veneer. Loaded with Player Jazz Bass pickups, this bass is powerful and articulate with well-balanced tone for any number of playing styles. The Blue Burst finish over flame maple makes this bass as stunning visually as it is sonically.',
+      'This limited-edition Player Jazz Bass Plus Top in Blue Burst delivers everything a bass player expects from a trad Jazz Bass, but adds a stunning flame maple veneer. Loaded with Player Jazz Bass pickups, this bass is powerful and articulate with well-balanced tone for any number of playing styles. The Blue Burst finish over flame maple makes this bass as stunning visually as it is sonically.',
     imageUrl:
       'http://yellowroomrecording.com/wp-content/uploads/2022/11/BASS1.jpeg',
     },

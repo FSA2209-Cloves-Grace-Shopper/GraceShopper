@@ -10,6 +10,47 @@ label {
   display: block;
 }
 
+
+
+.all-products-container {
+  max-width: 1040px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.each-product-box {
+  border: 1px solid rgb(69, 12, 135);
+  /* box-sizing: border-box */
+  text-align: center;
+  padding: 0rem 0rem 1rem;
+  /* background-color: rgb(96, 7, 7); */
+}
+
+.all-products-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.all-product-text {
+  font-weight: bold;
+}
+
+.all-product-img {
+  max-height: 250px;
+  max-width: 280px;
+  background-color: rgb(96, 7, 7);
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
 .singleProduct {
   display: flex;
   flex-direction: column;
