@@ -11,13 +11,17 @@ const Cart = (props) => {
       <div>Cart</div>
       <Link to="/products">Continue Shopping</Link>
       {auth.id ? (
-        <div style={{ background: 'red' }}>
-          <CartSubtotal uid={auth.id} />
+        <div>
+          <div className={'container'}>
+            <CartSubtotal uid={auth.id} />
+          </div>
+          <a href="/checkoutpage">
+            <button>Checkout</button>
+          </a>
         </div>
       ) : (
         <h1>Loading</h1>
       )}
-
       <div style={{ background: 'grey' }}></div>
     </>
   );

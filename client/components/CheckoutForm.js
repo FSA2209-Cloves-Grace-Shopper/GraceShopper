@@ -32,8 +32,9 @@ const CheckoutForm = ({ user = {}, isLoggedIn }) => {
 
   return (
     <form onSubmit={handleSubmit(handleSave)}>
-      <h1>Check Out Form</h1>
+      <h1>Checkout Form</h1>
       <div>
+        <div>Shipping address:</div>
         <label>First Name</label>
         <input type="text" {...register('firstName')} />
 
@@ -58,7 +59,7 @@ const CheckoutForm = ({ user = {}, isLoggedIn }) => {
         <div style={{ color: 'red' }}>{errors.email?.message}</div>
       </div>
       <div>
-        <button type="submit">Submit Form</button>
+        <button type="submit">Confirm Order</button>
       </div>
     </form>
   );

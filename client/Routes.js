@@ -5,6 +5,7 @@ import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
 import ViewAllProducts from './components/ViewAllProducts';
 import ViewSingleProduct from './components/ViewSingleProduct';
+import CheckoutPage from './components/CheckoutPage';
 import Footer from './components/Footer';
 import Cart from './components/Cart';
 import { me } from './store';
@@ -27,6 +28,7 @@ class Routes extends Component {
             <Switch>
               <Route path="/home" component={Home} />
               <Route exact path="/products" component={ViewAllProducts} />
+              <Route exact path="/checkoutpage" component={CheckoutPage} />
               <Route path="/cart" component={Cart} />
               <Route
                 exact
@@ -47,6 +49,7 @@ class Routes extends Component {
                 component={ViewSingleProduct}
               />
               <Route path="/cart" component={Cart} />
+              <Route exact path="/checkoutpage" component={CheckoutPage} />
             </Switch>
           )}
         </div>

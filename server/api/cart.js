@@ -24,7 +24,7 @@ router.get('/', async (req, res, next) => {
     const cart = await OrderProduct.findAll({
       where: { orderId: req.body.orderId },
     });
-    console.log(cart);
+    // console.log(cart);
 
     const mappedCart = await Promise.all(
       cart.map(async (cur) => {

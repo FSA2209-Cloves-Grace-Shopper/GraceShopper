@@ -30,7 +30,14 @@ label {
 }
 
 nav {
-  background-image: linear-gradient(to right top, #d47f08, #ac5326, #77332a, #3e1c1f, #000000);
+  background-image: linear-gradient(
+    to right top,
+    #d47f08,
+    #ac5326,
+    #77332a,
+    #3e1c1f,
+    #000000
+  );
   border: 3px solid #a39b9bb9;
 }
 
@@ -62,4 +69,8 @@ form div {
   width: 100%;
   height: 2.5rem;
   text-align: center;
+}
+
+.container {
+  border-style: solid;
 }

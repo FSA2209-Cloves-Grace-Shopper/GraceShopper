@@ -8,11 +8,15 @@ const CartSubtotal = (props) => {
   const state = useSelector((state) => state);
   console.log(props);
 
-  useEffect(() => {
-    dispatch(getCartThunk(props.uid));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getCartThunk(props.uid));
+  // }, []);
 
-  return <div>CartSubtotal</div>;
+  return (
+    <>
+      <div>CartSubtotal</div>
+    </>
+  );
 };
 
 export default CartSubtotal;

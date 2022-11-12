@@ -27,6 +27,7 @@ router.get('/:userId', async (req, res, next) => {
   }
 });
 // Get order number for user /:userId/ordernum
+// not restful? should be /orders/:userid/openorder?
 router.get('/:userId/ordernum', async (req, res, next) => {
   try {
     const orderNum = await Order.findOne({
