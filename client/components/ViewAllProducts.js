@@ -6,24 +6,25 @@ const ViewAllProducts = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts())
+    dispatch(fetchProducts());
   }, []);
 
   const products = useSelector((state) => state.allProducts);
-  
+
   return (
     <div>
-      <h2 className="allProductsTitle">
-        {'PRODUCTS'}
-      </h2>
-      <ul>{products.map((product) => (
-        <li key={product.id}>
-          <p>Brand: {product.name}</p>
-          <p>Type: {product.type}</p>
-          <p>Description: {product.description}</p>
-          <p>Price: {product.price}</p>
-        </li> 
-      ))}
+      <h2 className="allProductsTitle">{'PRODUCTS'}</h2>
+      // Clean this up
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            <p>Brand: {product.name}</p>
+            <p>Type: {product.type}</p>
+            <p>Style: {product.style}</p>
+            <p>Price: {product.price}</p>
+            <img src={product.imageUrl} />
+          </li>
+        ))}
       </ul>
     </div>
   );

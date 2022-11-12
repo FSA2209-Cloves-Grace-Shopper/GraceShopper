@@ -12,6 +12,11 @@ const addItem = (orderProduct) => ({
   orderProduct,
 });
 
+const getCart = (cart) => ({
+  type: GET_CART,
+  cart,
+});
+
 //thunk
 export const addItemThunk = (orderProduct) => {
   return async (dispatch) => {
@@ -27,7 +32,20 @@ export const addItemThunk = (orderProduct) => {
     }
   };
 };
+//get cart thunk
+export const getCartThunk = (orderId) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`/api/cart`, orderId);
+      dispatch(getCart(data));
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};
 
+// Reducer
 export default function (state = [], action) {
   switch (action.type) {
     case ADD_ITEM: {
@@ -45,6 +63,9 @@ export default function (state = [], action) {
       } else {
         return newCart;
       }
+    }
+    case GET_CART: {
+      return action.cart;
     }
     default:
       return state;
