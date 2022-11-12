@@ -1,18 +1,24 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import CheckoutForm from './CheckoutForm';
 import CartSubtotal from './CartSubtotal';
+import { Link } from 'react-router-dom';
 
 const Cart = (props) => {
-  console.log(props.auth);
+  const { auth } = useSelector((state) => state);
   return (
     <>
       <div>Cart</div>
-      <div style={{ background: 'red' }}>
-        <CartSubtotal />
-      </div>
-      <div style={{ background: 'grey' }}>
-        <CheckoutForm />
-      </div>
+      <Link to="/products">Continue Shopping</Link>
+      {auth.id ? (
+        <div style={{ background: 'red' }}>
+          <CartSubtotal uid={auth.id} />
+        </div>
+      ) : (
+        <h1>Loading</h1>
+      )}
+
+      <div style={{ background: 'grey' }}></div>
     </>
   );
 };
