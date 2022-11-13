@@ -85,11 +85,11 @@ router.post('/:productid', async (req, res, next) => {
     } else {
       const newQuantity = product.quantity + Number(req.body.quantity);
       // productSubtotal
-      const newTotalPrice = Number(product.totalPrice) + req.body.totalPrice;
+      const newProductSubtotal = Number(product.productSubtotal) + req.body.productSubtotal;
       await product.update({
         quantity: newQuantity,
         // productSubtotal
-        totalPrice: newTotalPrice,
+        productSubtotal: newProductSubtotal,
       });
     }
 
