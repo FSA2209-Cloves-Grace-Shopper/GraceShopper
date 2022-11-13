@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 const ViewProduct = (props) => {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
-  console.log(`**PROPS ${props.product.id}`)
+
   const product = props.product;
   const user = useSelector((state) => state.auth);
 
@@ -20,7 +20,7 @@ const ViewProduct = (props) => {
       userId: user.id,
       unitPrice: product.price,
       quantity: qty,
-      totalPrice: product.price * qty,
+      productSubtotal: product.price * qty,
       productId: product.id,
     };
     dispatch(addItemThunk(orderProduct));

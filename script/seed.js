@@ -1,10 +1,12 @@
 'use strict';
 const userData = require("./userData")
 const productData = require("./productData")
-// const orderProductData = require("./orderProductData")
+const orderData = require("./orderData")
+const orderProductData = require("./orderProductData")
+const orderHistoriesData = require("./orderHistoriesData")
 const {
   db,
-  models: { User, Product, OrderProduct },
+  models: { User, Product, Order, OrderProduct, OrderHistory },
 } = require('../server/db');
 
 
@@ -16,23 +18,28 @@ const {
 async function seed() {
   await db.sync({ force: true }); // clears db and matches models to tables
   console.log('db synced!');
-  // Creating Users from userData.js
+
   await Promise.all([
     User.bulkCreate(userData)
   ]);
-  console.log(`Users seeded successfully`);
 
-  // Creating Products from productData.js
   await Promise.all([
     Product.bulkCreate(productData),
   ]);
-  console.log(`Products seeded successfully`);
+
   
-  // Creating Products from productData.js
+  await Promise.all([
+    Order.bulkCreate(orderData),
+  ]);
+
+  await Promise.all([
+    OrderProduct.bulkCreate(orderProductData),
+  ]);
+  
   // await Promise.all([
-  //   OrderProduct.bulkCreate(orderProductData),
+  //   OrderHistory.bulkCreate(orderHistoriesData),
   // ]);
-  console.log(`orders seeded successfully`);
+  
   
 }
 /*

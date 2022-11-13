@@ -25,7 +25,7 @@ const ViewSingleProduct = (props) => {
       unitPrice: product.price,
       quantity: qty,
       // productSubtotal
-      totalPrice: product.price * qty,
+      productSubtotal: product.price * qty,
       productId: product.id,
     };
     dispatch(addItemThunk(orderProduct));
