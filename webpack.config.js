@@ -4,9 +4,6 @@ module.exports = {
     path: __dirname,
     filename: './public/bundle.js',
   },
-  devServer: {
-    watchContentBase: true,
-  },
   devtool: 'source-map',
   module: {
     rules: [

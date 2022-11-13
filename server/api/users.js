@@ -1,14 +1,14 @@
-const router = require("express").Router();
+const router = require('express').Router();
 const {
-  models: { User },
-} = require("../db");
+  models: { User, Order },
+} = require('../db');
 module.exports = router;
 // testing merge
 // Get all users /api/users
-router.get("/", async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll({
-      attributes: ["id", "email"],
+      attributes: ['id', 'email'],
     });
     res.send(users);
   } catch (err) {
@@ -16,19 +16,34 @@ router.get("/", async (req, res, next) => {
   }
 });
 // Get single user /api/users/:userId
-router.get("/:userId", async (req, res, next) => {
+router.get('/:userId', async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.userId, {
-      attributes: ["id", "email"],
+      attributes: ['id', 'email'],
     });
     res.send(user);
   } catch (err) {
     next(err);
   }
 });
+// Get order number for user /:userId/ordernum
+// not restful? should be /orders/:userid/openorder?
+router.get('/:userId/ordernum', async (req, res, next) => {
+  try {
+    const orderNum = await Order.findOne({
+      where: {
+        completed: false,
+        userId: req.params.userId,
+      },
+    });
+    res.send(orderNum);
+  } catch (err) {
+    next(err);
+  }
+});
 
 // Update user /api/users/:userId
-router.put("/:userId", async (req, res, next) => {
+router.put('/:userId', async (req, res, next) => {
   try {
     const updateUser = await User.update(req.body, {
       where: {
@@ -42,7 +57,7 @@ router.put("/:userId", async (req, res, next) => {
   }
 });
 // Add new user /api/users
-router.post("/", async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     const newUser = await User.create(req.body);
     res.send(newUser);
@@ -52,7 +67,7 @@ router.post("/", async (req, res, next) => {
 });
 
 // Remove user /api/users/:userId
-router.delete("/:userId", async (req, res, next) => {
+router.delete('/:userId', async (req, res, next) => {
   try {
     await User.destroy({
       where: {
