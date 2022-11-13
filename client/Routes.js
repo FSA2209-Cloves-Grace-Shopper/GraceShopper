@@ -5,6 +5,7 @@ import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
 import ViewAllProducts from './components/ViewAllProducts';
 import ViewSingleProduct from './components/ViewSingleProduct';
+import Footer from './components/Footer';
 import Cart from './components/Cart';
 import { me } from './store';
 
@@ -20,33 +21,36 @@ class Routes extends Component {
     const { isLoggedIn } = this.props;
 
     return (
-      <div>
-        {isLoggedIn ? (
-          <Switch>
-            <Route path="/home" component={Home} />
-            <Route exact path="/cart" component={Cart} />
-            <Route exact path="/products" component={ViewAllProducts} />
-            <Route
-              exact
-              path="/products/:productid"
-              component={ViewSingleProduct}
-            />
-            <Redirect to="/products" />
-          </Switch>
-        ) : (
-          <Switch>
-            <Route path="/" exact component={Login} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={Signup} />
-            <Route exact path="/products" component={ViewAllProducts} />
-            <Route
-              exact
-              path="/products/:productid"
-              component={ViewSingleProduct}
-            />
-            <Route path="/cart" component={Cart} />
-          </Switch>
-        )}
+      <div id="page-container">
+        <div id="content-wrap">
+          {isLoggedIn ? (
+            <Switch>
+              <Route path="/home" component={Home} />
+              <Route exact path="/products" component={ViewAllProducts} />
+              <Route path="/cart" component={Cart} />
+              <Route
+                exact
+                path="/products/:productid"
+                component={ViewSingleProduct}
+              />
+              <Redirect to="/products" />
+            </Switch>
+          ) : (
+            <Switch>
+              <Route path="/" exact component={Login} />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
+              <Route exact path="/products" component={ViewAllProducts} />
+              <Route
+                exact
+                path="/products/:productid"
+                component={ViewSingleProduct}
+              />
+              <Route path="/cart" component={Cart} />
+            </Switch>
+          )}
+        </div>
+        <Footer />
       </div>
     );
   }
