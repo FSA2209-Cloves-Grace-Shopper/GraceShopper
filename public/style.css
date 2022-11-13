@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  background-image: linear-gradient(to right top, #e7f1dd, #d4e2cc, #c2d4bc, #afc5ad, #9cb79e);
 }
 
 a {
@@ -10,8 +11,6 @@ label {
   display: block;
 }
 
-
-
 .all-products-container {
   max-width: 1040px;
   margin: auto;
@@ -21,11 +20,10 @@ label {
 }
 
 .each-product-box {
-  border: 1px solid rgb(69, 12, 135);
-  /* box-sizing: border-box */
+  border: 1px solid rgb(54, 53, 57);
   text-align: center;
   padding: 0rem 0rem 1rem;
-  /* background-color: rgb(96, 7, 7); */
+  background-image: linear-gradient(to right top, #efefef, #eeeeee, #ededed, #edebec, #eceaea);
 }
 
 .all-products-name {
@@ -42,7 +40,6 @@ label {
 .all-product-img {
   max-height: 250px;
   max-width: 280px;
-  background-color: rgb(96, 7, 7);
 }
 
 .grid {

@@ -3,7 +3,7 @@ const {
   models: { User, Order },
 } = require('../db');
 module.exports = router;
-// testing merge
+
 // Get all users /api/users
 router.get('/', async (req, res, next) => {
   try {
@@ -15,6 +15,7 @@ router.get('/', async (req, res, next) => {
     next(err);
   }
 });
+
 // Get single user /api/users/:userId
 router.get('/:userId', async (req, res, next) => {
   try {
@@ -26,6 +27,7 @@ router.get('/:userId', async (req, res, next) => {
     next(err);
   }
 });
+
 // Get order number for user /:userId/ordernum
 // not restful? should be /orders/:userid/openorder?
 router.get('/:userId/ordernum', async (req, res, next) => {
@@ -56,6 +58,7 @@ router.put('/:userId', async (req, res, next) => {
     next(err);
   }
 });
+
 // Add new user /api/users
 router.post('/', async (req, res, next) => {
   try {
