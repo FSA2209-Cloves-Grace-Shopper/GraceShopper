@@ -33,12 +33,12 @@ export const addItemThunk = (orderProduct) => {
   };
 };
 //get cart thunk
-export const getCartThunk = (userId) => {
+export const getCartThunk = (orderId) => {
   // need to first get the order number
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`api/users/${userId}/ordernum`);
-      const orderId = data.id;
+      // const { data } = await axios.get(`api/users/${userId}/ordernum`);
+      // const orderId = data.id;
       // console.log('***********************', orderId);
       const returnData = await axios.get(`/api/cart`, orderId);
       console.log(returnData.data.cart);

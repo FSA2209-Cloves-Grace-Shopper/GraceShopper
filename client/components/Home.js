@@ -1,12 +1,18 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getIdThunk } from '../store/orderId';
 
 /**
  * COMPONENT
  */
 export const Home = (props) => {
-  console.log(props.auth, "props");
+  console.log(props.auth, 'props');
   const { firstName } = props;
+
+  useEffect(() => {
+    console.log(props.auth.id);
+    props.getId(props.auth.id);
+  });
 
   return (
     <div>
@@ -26,4 +32,10 @@ const mapState = (state) => {
   };
 };
 
-export default connect(mapState)(Home);
+const mapDispatch = (dispatch) => {
+  return {
+    getId: (uid) => dispatch(getIdThunk(uid)),
+  };
+};
+
+export default connect(mapState, mapDispatch)(Home);
