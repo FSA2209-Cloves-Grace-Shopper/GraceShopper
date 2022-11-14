@@ -6,7 +6,7 @@ module.exports = router;
 
 // api/home
 router.get('/', async (req, res, next) => {
-  console.log('******', req);
+  // console.log('******', req);
   try {
     const orderNum = await Order.findOne({
       where: {

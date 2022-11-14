@@ -6,7 +6,7 @@ const CheckoutForm = ({ user = {} }) => {
     defaultValues: user,
   });
   const handleSave = (formVal) => {
-    console.log(formVal);
+    // console.log(formVal);
   };
   return (
     <form onSubmit={handleSubmit(handleSave)}>
