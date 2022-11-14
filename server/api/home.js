@@ -6,15 +6,22 @@ module.exports = router;
 
 // api/home
 router.get('/', async (req, res, next) => {
-  // console.log('******', req);
+  console.log('******', req.query);
   try {
-    const orderNum = await Order.findOne({
+    let order = await Order.findOne({
       where: {
         completed: false,
-        userId: req.query.userId,
+        userId: Number(req.query.userId),
       },
     });
-    res.send(orderNum);
+
+    if (!order) {
+      order = await Order.create({
+        completed: false,
+        userId: Number(req.query.userId),
+      });
+    }
+    res.send(order);
   } catch (err) {
     next(err);
   }
