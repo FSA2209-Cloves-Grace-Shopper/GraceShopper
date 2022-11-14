@@ -84,10 +84,12 @@ router.post('/:productid', async (req, res, next) => {
       await OrderProduct.create(req.body);
     } else {
       const newQuantity = product.quantity + Number(req.body.quantity);
-      const newTotalPrice = Number(product.totalPrice) + req.body.totalPrice;
+      // productSubtotal
+      const newProductSubtotal = Number(product.productSubtotal) + req.body.productSubtotal;
       await product.update({
         quantity: newQuantity,
-        totalPrice: newTotalPrice,
+        // productSubtotal
+        productSubtotal: newProductSubtotal,
       });
     }
 

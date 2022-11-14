@@ -10,7 +10,8 @@ const OrderProduct = db.define('orderProduct', {
     type: Sequelize.DECIMAL(10, 2),
     allowNull: false,
   },
-  totalPrice: {
+  // productSubtotal
+  productSubtotal: {
     type: Sequelize.DECIMAL(10, 2),
     allowNull: false,
   },

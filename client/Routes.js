@@ -9,7 +9,11 @@ import CheckoutPage from './components/CheckoutPage';
 import Footer from './components/Footer';
 import { getIdThunk } from './store/orderId';
 import Cart from './components/Cart';
+
 import { getCartThunk } from './store/cart';
+
+import SignupForm from './components/SignupForm';
+
 import { me } from './store';
 
 /**
@@ -52,7 +56,7 @@ class Routes extends Component {
             <Switch>
               <Route path="/" exact component={Login} />
               <Route path="/login" component={Login} />
-              <Route path="/signup" component={Signup} />
+              <Route path="/signup" component={SignupForm} />
               <Route exact path="/products" component={ViewAllProducts} />
               <Route
                 exact
