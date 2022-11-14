@@ -54,7 +54,7 @@ export const getCartThunk = (orderId) => {
 export const deleteItemThunk = (productId, orderId) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.delete(`/api/cart`, {
+      const { data } = await axios.delete('/api/cart', {
         data: { productId, orderId },
       });
       dispatch(getCart(orderId));

@@ -45,19 +45,31 @@ const CheckoutForm = ({ user = {}, isLoggedIn }) => {
       </div>
       <div>
         <label>Last Name</label>
-        <input type="text" {...register('lastName')} />
+        <input
+          type="text"
+          {...register('lastName')}
+          defaultValue={currentState.auth.lastName}
+        />
 
         <div style={{ color: 'red' }}>{errors.lastName?.message}</div>
       </div>
       <div>
         <label>Address</label>
-        <input type="text" {...register('address')} />
+        <input
+          type="text"
+          {...register('address')}
+          defaultValue={currentState.auth.address}
+        />
 
         <div style={{ color: 'red' }}>{errors.address?.message}</div>
       </div>
       <div>
         <label>email</label>
-        <input type="text" {...register('email')} />
+        <input
+          type="text"
+          {...register('email')}
+          defaultValue={currentState.auth.email}
+        />
 
         <div style={{ color: 'red' }}>{errors.email?.message}</div>
       </div>
