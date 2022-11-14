@@ -1,5 +1,7 @@
 import axios from 'axios';
 import history from '../history';
+import { authenticate } from './auth'
+
 
 /**
  * ACTION TYPES
@@ -24,9 +26,10 @@ const setUser = (user) => ({
 export const addUser = (user) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.post(`/api/users/`, user);
-      dispatch(setUser(data));
-      history.push('/login')
+      const { data } = await axios.post(`/auth/signup`, user);
+      const login = 'login';
+      dispatch(authenticate(user.email, user.password, login));
+      history.push('/products')
       return data;
     } catch (e) {
       console.error(e);
