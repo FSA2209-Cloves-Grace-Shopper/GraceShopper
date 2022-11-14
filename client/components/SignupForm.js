@@ -23,10 +23,6 @@ const SignupForm = ({ user = {}, isLoggedIn }) => {
   const { errors } = formState;
   const dispatch = useDispatch();
 
-  // const currentState = useSelector((state) => {
-  //   return state;
-  // });
-
   const onSave = (user) => {
     dispatch(addUser(user));
   };
