@@ -3,18 +3,26 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getCartThunk } from '../store/cart';
 
 // grab cart
-const CartSubtotal = (props) => {
+const CartSubtotal = () => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
-  console.log(props);
+  const { orderId, cart } = useSelector((state) => state);
 
-  // useEffect(() => {
-  //   dispatch(getCartThunk(props.uid));
-  // }, []);
+  useEffect(() => {
+    dispatch(getCartThunk(orderId));
+  }, [orderId]);
 
   return (
     <>
       <div>CartSubtotal</div>
+      {cart.length > 0 ? (
+        <div>
+          {cart.map((item, i) => (
+            <div key={i}>{item.name}</div>
+          ))}
+        </div>
+      ) : (
+        <div>Loading</div>
+      )}
     </>
   );
 };

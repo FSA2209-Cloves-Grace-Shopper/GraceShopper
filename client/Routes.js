@@ -7,8 +7,13 @@ import ViewAllProducts from './components/ViewAllProducts';
 import ViewSingleProduct from './components/ViewSingleProduct';
 import CheckoutPage from './components/CheckoutPage';
 import Footer from './components/Footer';
+import { getIdThunk } from './store/orderId';
 import Cart from './components/Cart';
+
+import { getCartThunk } from './store/cart';
+
 import SignupForm from './components/SignupForm';
+
 import { me } from './store';
 
 /**
@@ -17,6 +22,15 @@ import { me } from './store';
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData();
+  }
+
+  componentDidUpdate() {
+    if (this.props.userId) {
+      this.props.loadOrderId(this.props.userId);
+    }
+    // if (this.props.orderId) {
+    //   this.props.loadCart(this.props.orderId);
+    // }
   }
 
   render() {
@@ -36,7 +50,7 @@ class Routes extends Component {
                 path="/products/:productid"
                 component={ViewSingleProduct}
               />
-              <Redirect to="/products" />
+              <Redirect to="/home" />
             </Switch>
           ) : (
             <Switch>
@@ -68,6 +82,7 @@ const mapState = (state) => {
     // Being 'logged in' for our purposes will be defined has having a state.auth that has a truthy id.
     // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
     isLoggedIn: !!state.auth.id,
+    userId: state.auth.id,
   };
 };
 
@@ -75,6 +90,12 @@ const mapDispatch = (dispatch) => {
   return {
     loadInitialData() {
       dispatch(me());
+    },
+    loadOrderId(id) {
+      dispatch(getIdThunk(id));
+    },
+    loadCart(orderId) {
+      dispatch(getCartThunk(orderId));
     },
   };
 };
