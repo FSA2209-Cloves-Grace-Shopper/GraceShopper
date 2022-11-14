@@ -50,6 +50,21 @@ export const getCartThunk = (orderId) => {
   };
 };
 
+//delete item thunk
+export const deleteItemThunk = (productId, orderId) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete(`/api/cart`, {
+        data: { productId, orderId },
+      });
+      dispatch(getCart(orderId));
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};
+
 // Reducer
 export default function (state = [], action) {
   switch (action.type) {
