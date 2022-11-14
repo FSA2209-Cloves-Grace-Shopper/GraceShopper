@@ -22,7 +22,7 @@ router.get('/', async (req, res, next) => {
   };
   try {
     const cart = await OrderProduct.findAll({
-      where: { orderId: req.body.orderId },
+      where: { orderId: req.query.orderId },
     });
     // console.log(cart);
 

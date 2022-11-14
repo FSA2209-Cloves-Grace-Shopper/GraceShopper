@@ -40,8 +40,8 @@ export const getCartThunk = (orderId) => {
       // const { data } = await axios.get(`api/users/${userId}/ordernum`);
       // const orderId = data.id;
       // console.log('***********************', orderId);
-      const returnData = await axios.get(`/api/cart`, orderId);
-      console.log(returnData.data.cart);
+      const returnData = await axios.get(`/api/cart`, { params: { orderId } });
+      // console.log(returnData.data.cart);
       dispatch(getCart(returnData.data.cart));
       return returnData;
     } catch (err) {
