@@ -38,11 +38,12 @@ router.get('/', async (req, res, next) => {
 
 // Remove cart item /api/cart/
 router.delete('/', async (req, res, next) => {
+  //console.log('REQ BODY', req.body);
   try {
     await OrderProduct.destroy({
       where: {
         orderId: req.body.orderId,
-        productId: req.body.prodId,
+        productId: req.body.productId,
       },
     });
     res.sendStatus(204);
