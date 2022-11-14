@@ -35,3 +35,18 @@ router.get('/', async (req, res, next) => {
     next(err);
   }
 });
+
+// Remove cart item /api/cart/
+router.delete('/', async (req, res, next) => {
+  try {
+    await OrderProduct.destroy({
+      where: {
+        orderId: req.body.orderId,
+        productId: req.body.prodId,
+      },
+    });
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+});
