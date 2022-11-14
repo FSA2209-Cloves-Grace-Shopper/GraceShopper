@@ -12,14 +12,9 @@ router.get('/', async (req, res, next) => {
         id: pid,
       },
     });
-    // console.log(
-    //   '********prod',
-    //   prod.id,
-    //   '********* prod.product',
-    //   prod.imageUrl
-    // );
-    return prod.imageUrl;
+    return [prod.imageUrl, prod.name];
   };
+
   try {
     const cart = await OrderProduct.findAll({
       where: { orderId: req.query.orderId },
@@ -28,8 +23,9 @@ router.get('/', async (req, res, next) => {
 
     const mappedCart = await Promise.all(
       cart.map(async (cur) => {
-        const img = await getImg(cur.productId);
+        const [img, name] = await getImg(cur.productId);
         cur.dataValues.imageUrl = img;
+        cur.dataValues.name = name;
         // console.log(cur);
         return cur;
       })

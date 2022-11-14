@@ -9,6 +9,7 @@ import CheckoutPage from './components/CheckoutPage';
 import Footer from './components/Footer';
 import { getIdThunk } from './store/orderId';
 import Cart from './components/Cart';
+import { getCartThunk } from './store/cart';
 import { me } from './store';
 
 /**
@@ -23,6 +24,9 @@ class Routes extends Component {
     if (this.props.userId) {
       this.props.loadOrderId(this.props.userId);
     }
+    // if (this.props.orderId) {
+    //   this.props.loadCart(this.props.orderId);
+    // }
   }
 
   render() {
@@ -85,6 +89,9 @@ const mapDispatch = (dispatch) => {
     },
     loadOrderId(id) {
       dispatch(getIdThunk(id));
+    },
+    loadCart(orderId) {
+      dispatch(getCartThunk(orderId));
     },
   };
 };

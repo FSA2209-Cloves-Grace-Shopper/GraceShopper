@@ -6,12 +6,9 @@ import { Link } from 'react-router-dom';
 import { getCartThunk } from '../store/cart';
 
 const Cart = (props) => {
-  const { auth, orderId } = useSelector((state) => state);
+  const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getCartThunk(orderId));
-  }, []);
-
+  console.log('inside cart component');
   return (
     <>
       <div>Cart</div>
@@ -19,7 +16,7 @@ const Cart = (props) => {
       {auth.id ? (
         <div>
           <div className={'container'}>
-            <CartSubtotal uid={auth.id} />
+            <CartSubtotal />
           </div>
           <a href="/checkoutpage">
             <button>Checkout</button>
