@@ -1,4 +1,5 @@
 import axios from 'axios';
+import history from '../history';
 
 /**
  * ACTION TYPES
@@ -24,8 +25,8 @@ export const addUser = (user) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post(`/api/users/`, user);
-      console.log(`**data.id** ${data.id}`)
       dispatch(setUser(data));
+      history.push('/login')
       return data;
     } catch (e) {
       console.error(e);
