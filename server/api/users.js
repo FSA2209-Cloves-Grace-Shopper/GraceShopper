@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  models: { User, Order },
+  models: { User },
 } = require('../db');
 module.exports = router;
 
@@ -28,7 +28,6 @@ router.get('/:userId', async (req, res, next) => {
   }
 });
 
-
 // Update user /api/users/:userId
 router.put('/:userId', async (req, res, next) => {
   try {
@@ -43,16 +42,6 @@ router.put('/:userId', async (req, res, next) => {
     next(err);
   }
 });
-
-// Add new user /api/users
-// router.post('/', async (req, res, next) => {
-//   try {
-//     const newUser = await User.create(req.body);
-//     res.send(newUser);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
 
 // Remove user /api/users/:userId
 router.delete('/:userId', async (req, res, next) => {
