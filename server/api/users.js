@@ -45,14 +45,14 @@ router.put('/:userId', async (req, res, next) => {
 });
 
 // Add new user /api/users
-router.post('/', async (req, res, next) => {
-  try {
-    const newUser = await User.create(req.body);
-    res.send(newUser);
-  } catch (err) {
-    next(err);
-  }
-});
+// router.post('/', async (req, res, next) => {
+//   try {
+//     const newUser = await User.create(req.body);
+//     res.send(newUser);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
 // Remove user /api/users/:userId
 router.delete('/:userId', async (req, res, next) => {
