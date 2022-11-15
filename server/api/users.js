@@ -1,14 +1,13 @@
 const router = require('express').Router();
-const {
-  models: { User },
-} = require('../db');
+const { models: { User } } = require('../db');
+const { requireToken, isAdmin } = require('./gatekeepingMiddleware');
 module.exports = router;
 
 // Get all users /api/users
-router.get('/', async (req, res, next) => {
+router.get('/', requireToken, isAdmin, async (req, res, next) => {
   try {
     const users = await User.findAll({
-      attributes: ['id', 'email'],
+      attributes: ['firstName', 'lastName', 'address', 'email', 'role']
     });
     res.send(users);
   } catch (err) {
@@ -17,10 +16,10 @@ router.get('/', async (req, res, next) => {
 });
 
 // Get single user /api/users/:userId
-router.get('/:userId', async (req, res, next) => {
+router.get('/:userId', requireToken, isAdmin, async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.userId, {
-      attributes: ['id', 'email'],
+      attributes: ['firstName', 'lastName', 'address', 'email', 'role']
     });
     res.send(user);
   } catch (err) {
@@ -29,9 +28,10 @@ router.get('/:userId', async (req, res, next) => {
 });
 
 // Update user /api/users/:userId
-router.put('/:userId', async (req, res, next) => {
+router.put('/:userId', requireToken, isAdmin, async (req, res, next) => {
   try {
     const updateUser = await User.update(req.body, {
+      attributes: ['firstName', 'lastName', 'address', 'email', 'role'],
       where: {
         id: req.params.userId,
       },
@@ -44,7 +44,7 @@ router.put('/:userId', async (req, res, next) => {
 });
 
 // Remove user /api/users/:userId
-router.delete('/:userId', async (req, res, next) => {
+router.delete('/:userId', requireToken, isAdmin, async (req, res, next) => {
   try {
     await User.destroy({
       where: {
