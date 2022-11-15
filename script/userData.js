@@ -1,7 +1,7 @@
 const userData = [   
   {"firstName":'Scott',"lastName":'Irwin',"address":'123 N St.',"password":'12345678',"email": 'scott@scott.com',"role":'admin'}, 
   {"firstName":"Jerry","lastName":"Jerry","email":"jerry@jerry.com","address":"3056 Bellgrove Way","password":"12345678","role":'admin'},
-  {"firstName":"Peter","lastName":"Rodocker","email":"peter@peter.com","address":"1 Towne Lane","password":"Rpqkun","role":'nonAdmin'},
+  {"firstName":"Peter","lastName":"Rodocker","email":"peter@peter.com","address":"1 Towne Lane","password":"12345678","role":'nonAdmin'},
   {"firstName":"Scarface","lastName":"Flindall","email":"sflindall2@tiny.cc","address":"515 Dapin Circle","password":"u0FgkEet"},
   {"firstName":"Vite","lastName":"Nethercott","email":"vnethercott3@nydailynews.com","address":"61342 Hayes Parkway","password":"DRNmGB"},
   {"firstName":"Glenda","lastName":"Jobbins","email":"gjobbins4@qq.com","address":"1038 Menomonie Terrace","password":"bnYXEj"},

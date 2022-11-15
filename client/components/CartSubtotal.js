@@ -1,16 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
 import CartSubItem from './CartSubItem';
-import { getCartThunk } from '../store/cart';
+
+
+import { getCartThunk, deleteItemThunk, getCart } from '../store/cart';
+
 
 // grab cart
 const CartSubtotal = () => {
   const dispatch = useDispatch();
-  const { orderId, cart } = useSelector((state) => state);
-
+  let { orderId, cart, auth } = useSelector((state) => state);
   useEffect(() => {
-    dispatch(getCartThunk(orderId));
+    if (auth.id) {
+      dispatch(getCartThunk(orderId));
+    } else {
+      cart = JSON.parse(window.localStorage.getItem('cart'));
+      dispatch(getCart(cart));
+    }
   }, [orderId]);
+
+
+  const handleDelete = async (productId, orderId) => {
+    if (auth.id) {
+      await dispatch(deleteItemThunk(productId, orderId));
+      dispatch(getCartThunk(orderId));
+    } else {
+      cart = JSON.parse(window.localStorage.getItem('cart'));
+      cart = cart.filter((item) => item.productId !== productId);
+      window.localStorage.setItem('cart', JSON.stringify(cart));
+      dispatch(getCart(cart));
+    }
+  };
+
 
   return (
     <>

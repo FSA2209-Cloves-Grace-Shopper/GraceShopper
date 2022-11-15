@@ -22,6 +22,10 @@ import { me } from './store';
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData();
+    let cart = JSON.parse(window.localStorage.getItem('cart'));
+    if (!cart) {
+      window.localStorage.setItem('cart', JSON.stringify([]));
+    }
   }
 
   componentDidUpdate() {

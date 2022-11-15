@@ -9,23 +9,18 @@ const Cart = (props) => {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  // console.log('inside cart component');
   return (
     <>
       <div>Cart</div>
       <Link to="/products">Continue Shopping</Link>
-      {auth.id ? (
-        <div>
-          <div className={'container'}>
-            <CartSubtotal />
-          </div>
-          <a href="/checkoutpage">
-            <button>Checkout</button>
-          </a>
+      <div>
+        <div className={'container'}>
+          <CartSubtotal />
         </div>
-      ) : (
-        <h1>Loading</h1>
-      )}
+        <a href="/checkoutpage">
+          <button>Checkout</button>
+        </a>
+      </div>
       <div style={{ background: 'grey' }}></div>
     </>
   );
