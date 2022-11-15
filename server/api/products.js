@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const {models: { Product, OrderProduct }} = require('../db');
+const {
+  models: { Product, OrderProduct },
+} = require('../db');
 const { requireToken, isAdmin } = require('./gatekeepingMiddleware');
 const Order = require('../db/models/Order');
 
@@ -108,6 +110,7 @@ router.post('/:productid', async (req, res, next) => {
         orderId: order.id,
       },
     });
+    console.log('CART', cart);
 
     res.send(cart);
   } catch (err) {

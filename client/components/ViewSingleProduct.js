@@ -15,10 +15,10 @@ const ViewSingleProduct = (props) => {
   const user = useSelector((state) => state.auth);
 
   const handleChange = (evt) => {
-    setQty(evt.target.value);
+    setQty(+evt.target.value);
   };
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
     const orderProduct = {
       userId: user.id,
