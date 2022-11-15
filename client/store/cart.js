@@ -63,6 +63,7 @@ export const getCartThunk = (orderId) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(`/api/cart`, { params: { orderId } });
+
       dispatch(getCart(data));
       return data;
     } catch (err) {
@@ -86,7 +87,28 @@ export const deleteItemThunk = (productId, orderId) => {
   };
 };
 
+
+//update quant thunk
+export const updateQtyThunk = (orderId, productId, qty) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.put('/api/cart', {
+        productId,
+        orderId,
+        qty,
+      });
+
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};
+
+
+
 // REDUCER
+
 export default function (state = [], action) {
   switch (action.type) {
     case ADD_ITEM: {
