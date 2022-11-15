@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const {
-  models: { Product, OrderProduct },
-} = require('../db');
+const {models: { Product, OrderProduct }} = require('../db');
+const { requireToken, isAdmin } = require('./gatekeepingMiddleware');
 const Order = require('../db/models/Order');
+
 module.exports = router;
 
 // Get all products /api/products/
@@ -29,7 +29,7 @@ router.get('/:productid', async (req, res, next) => {
 });
 
 // Add a product /api/products/
-router.post('/', async (req, res, next) => {
+router.post('/', requireToken, isAdmin, async (req, res, next) => {
   try {
     res.send(await Product.create(req.body));
   } catch (err) {
@@ -38,7 +38,7 @@ router.post('/', async (req, res, next) => {
 });
 
 // Delete a product /api/products/:productid
-router.delete('/:productid', async (req, res, next) => {
+router.delete('/:productid', requireToken, isAdmin, async (req, res, next) => {
   try {
     await Product.destroy({ where: { id: req.params.productid } });
     res.sendStatus(204);
@@ -48,7 +48,7 @@ router.delete('/:productid', async (req, res, next) => {
 });
 
 // Update a product /api/products/:productid
-router.put('/:productid', async (req, res, next) => {
+router.put('/:productid', requireToken, isAdmin, async (req, res, next) => {
   try {
     const updatedProduct = await Product.update(req.body, {
       where: {
@@ -62,7 +62,17 @@ router.put('/:productid', async (req, res, next) => {
   }
 });
 
-router.post('/:productid', async (req, res, next) => {
+// Add a product to DB /api/products
+router.post('/', requireToken, isAdmin, async (req, res, next) => {
+  try {
+    const updatedProduct = await Product.create(req.body);
+    res.send(updatedProduct[1][0]);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post('/:productid', requireToken, async (req, res, next) => {
   try {
     const order = await Order.findOne({
       where: {
@@ -84,12 +94,10 @@ router.post('/:productid', async (req, res, next) => {
       await OrderProduct.create(req.body);
     } else {
       const newQuantity = product.quantity + Number(req.body.quantity);
-      // productSubtotal
       const newProductSubtotal =
         Number(product.productSubtotal) + req.body.productSubtotal;
       await product.update({
         quantity: newQuantity,
-        // productSubtotal
         productSubtotal: newProductSubtotal,
       });
     }
