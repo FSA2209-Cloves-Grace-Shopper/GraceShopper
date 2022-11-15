@@ -22,6 +22,7 @@ router.get('/:productid', async (req, res, next) => {
       where: { id: req.params.productid },
     });
     res.send(product);
+    return product;
   } catch (err) {
     next(err);
   }
@@ -85,7 +86,8 @@ router.post('/:productid', async (req, res, next) => {
     } else {
       const newQuantity = product.quantity + Number(req.body.quantity);
       // productSubtotal
-      const newProductSubtotal = Number(product.productSubtotal) + req.body.productSubtotal;
+      const newProductSubtotal =
+        Number(product.productSubtotal) + req.body.productSubtotal;
       await product.update({
         quantity: newQuantity,
         // productSubtotal

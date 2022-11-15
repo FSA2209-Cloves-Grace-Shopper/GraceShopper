@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItemThunk } from '../store/cart';
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom';
 
 const ViewProduct = (props) => {
   const [qty, setQty] = useState(1);
@@ -27,17 +27,17 @@ const ViewProduct = (props) => {
   };
 
   return (
-    <div className="each-product-box" >
+    <div className="each-product-box">
       <div className="all-products-name" key={product.id}>
         <h2>{product.name}</h2>
-        <div className="all-product-text">{product.style} {product.type}</div>
+        <div className="all-product-text">
+          {product.style} {product.type}
+        </div>
         <div className="all-product-text">${product.price}</div>
         <Link to={`/products/${product.id}`}>
-          <img className="all-product-img" src={product.imageUrl}/>
+          <img className="all-product-img" src={product.imageUrl} />
         </Link>
-        <form 
-        onSubmit={handleSubmit}
-        >
+        <form onSubmit={handleSubmit}>
           <label>Quantity</label>
           <input
             className="quantityInput"
@@ -47,7 +47,7 @@ const ViewProduct = (props) => {
 
           <button type="submit">Add to Cart</button>
         </form>
-      </div> 
+      </div>
     </div>
   );
 };
