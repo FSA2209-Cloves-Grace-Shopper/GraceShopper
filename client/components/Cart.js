@@ -8,6 +8,7 @@ import { getCartThunk } from '../store/cart';
 const Cart = (props) => {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
+
   // console.log('inside cart component');
   return (
     <>

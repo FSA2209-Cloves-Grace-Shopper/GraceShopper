@@ -51,3 +51,20 @@ router.delete('/', async (req, res, next) => {
     next(err);
   }
 });
+
+// Update cart item qty /api/cart
+router.put('/', async (req, res, next) => {
+  console.log('REQ BODY', req.body);
+  try {
+    const item = await OrderProduct.findOne({
+      where: {
+        orderId: req.body.orderId,
+        productId: req.body.productId,
+      },
+    });
+    await item.update({ quantity: req.body.qty });
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+});
