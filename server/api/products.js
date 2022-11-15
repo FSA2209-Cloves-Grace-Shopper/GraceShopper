@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const {models: { Product, OrderProduct }} = require('../db');
+const {
+  models: { Product, OrderProduct },
+} = require('../db');
 const { requireToken, isAdmin } = require('./gatekeepingMiddleware');
 const Order = require('../db/models/Order');
 
@@ -72,7 +74,7 @@ router.post('/', requireToken, isAdmin, async (req, res, next) => {
   }
 });
 
-router.post('/:productid', requireToken, async (req, res, next) => {
+router.post('/:productid', async (req, res, next) => {
   try {
     const order = await Order.findOne({
       where: {

@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getCartThunk, deleteItemThunk } from '../store/cart';
+import { useSelector } from 'react-redux';
 import CartQtyDisplay from './CartQtyDisplay';
 
 const CartSubItem = (props) => {
-  const dispatch = useDispatch();
   const { orderId } = useSelector((state) => state);
-  const { item } = props;
-
-  const handleDelete = async (productId, orderId) => {
-    await dispatch(deleteItemThunk(productId, orderId));
-    dispatch(getCartThunk(orderId));
-  };
-
+  const { item, handleDelete } = props;
+  console.log(item);
   return (
     <div>
       <h2>
         <span>{item.name}</span>
         <span>${item.unitPrice}</span>
-        <CartQtyDisplay item={item} orderId={orderId} />
+        <CartQtyDisplay
+          item={item}
+          orderId={orderId}
+          handleDelete={handleDelete}
+        />
         total {item.productSubtotal}
       </h2>
       <button onClick={() => handleDelete(item.productId, orderId)}>

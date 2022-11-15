@@ -1,11 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import CartSubItem from './CartSubItem';
-
-
 import { getCartThunk, deleteItemThunk, getCart } from '../store/cart';
-
 
 // grab cart
 const CartSubtotal = () => {
@@ -20,7 +16,6 @@ const CartSubtotal = () => {
     }
   }, [orderId]);
 
-
   const handleDelete = async (productId, orderId) => {
     if (auth.id) {
       await dispatch(deleteItemThunk(productId, orderId));
@@ -33,7 +28,6 @@ const CartSubtotal = () => {
     }
   };
 
-
   return (
     <>
       <div>CartSubtotal</div>
@@ -42,7 +36,7 @@ const CartSubtotal = () => {
           {cart.map((item, i) => {
             return (
               <div key={i}>
-                <CartSubItem item={item} />
+                <CartSubItem handleDelete={handleDelete} item={item} />
               </div>
             );
           })}

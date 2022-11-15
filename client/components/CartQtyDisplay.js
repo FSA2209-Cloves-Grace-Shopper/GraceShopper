@@ -19,8 +19,7 @@ const CartQtyDisplay = (props) => {
     event.preventDefault();
     // console.log(orderId);
     if (+event.target.qty.value === 0) {
-      dispatch(deleteItemThunk(item.productId, orderId));
-      await dispatch(getCartThunk(orderId));
+      props.handleDelete(item.productId, orderId);
     } else {
       const data = await dispatch(
         updateQtyThunk(orderId, item.productId, +event.target.qty.value)
@@ -29,6 +28,8 @@ const CartQtyDisplay = (props) => {
       await dispatch(getCartThunk(orderId));
     }
   };
+
+  console.log(item);
 
   return (
     <form onSubmit={handleSubmit}>
