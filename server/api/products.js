@@ -31,7 +31,6 @@ router.get('/:productid', async (req, res, next) => {
 // Add a product /api/products/
 router.post('/', async (req, res, next) => {
   try {
-    // console.log(req.body);
     res.send(await Product.create(req.body));
   } catch (err) {
     next(err);

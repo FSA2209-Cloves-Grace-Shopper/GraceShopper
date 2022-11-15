@@ -26,7 +26,6 @@ class Routes extends Component {
     if (!cart) {
       window.localStorage.setItem('cart', JSON.stringify([]));
     }
-    //console.log(cart);
   }
 
   componentDidUpdate() {
