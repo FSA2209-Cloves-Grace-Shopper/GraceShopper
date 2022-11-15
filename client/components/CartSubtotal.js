@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import CartSubItem from './CartSubItem';
 import { getCartThunk, deleteItemThunk, getCart } from '../store/cart';
 
-// grab cart
 const CartSubtotal = () => {
   const dispatch = useDispatch();
   let { orderId, cart, auth } = useSelector((state) => state);
+
   useEffect(() => {
     if (auth.id) {
       dispatch(getCartThunk(orderId));
