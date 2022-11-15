@@ -87,7 +87,6 @@ export const deleteItemThunk = (productId, orderId) => {
   };
 };
 
-
 //update quant thunk
 export const updateQtyThunk = (orderId, productId, qty) => {
   return async (dispatch) => {
@@ -105,7 +104,19 @@ export const updateQtyThunk = (orderId, productId, qty) => {
   };
 };
 
-
+export const checkoutThunk = (user) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get('/api/cart', {
+        data: { productId, orderId },
+      });
+      dispatch(getCart(orderId));
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};
 
 // REDUCER
 

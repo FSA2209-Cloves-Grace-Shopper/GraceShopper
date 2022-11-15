@@ -6,8 +6,8 @@ const CheckoutPage = () => {
   return (
     <>
       <div>CheckoutPage</div>
-      <CheckoutForm />
       <CartSubtotal />
+      <CheckoutForm />
     </>
   );
 };
