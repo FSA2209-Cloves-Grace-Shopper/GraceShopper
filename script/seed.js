@@ -26,7 +26,7 @@ async function seed() {
   //   Order.bulkCreate(orderData),
   // ]);
 
-  await Promise.all([OrderProduct.bulkCreate(orderProductData)]);
+  // await Promise.all([OrderProduct.bulkCreate(orderProductData)]);
 
   // await Promise.all([
   //   OrderHistory.bulkCreate(orderHistoriesData),
