@@ -8,9 +8,9 @@ const REMOVE_ITEM = 'REMOVE_ITEM';
 const UPDATE_QUANTITY = 'UPDATE_QUANTITY';
 
 //ACTION CREATORS
-const addItem = (orderProduct) => ({
+const addItem = (order) => ({
   type: ADD_ITEM,
-  orderProduct,
+  order,
 });
 
 export const getCart = (cart) => ({
@@ -87,7 +87,6 @@ export const deleteItemThunk = (productId, orderId) => {
   };
 };
 
-
 //update quant thunk
 export const updateQtyThunk = (orderId, productId, qty) => {
   return async (dispatch) => {
@@ -97,7 +96,6 @@ export const updateQtyThunk = (orderId, productId, qty) => {
         orderId,
         qty,
       });
-
       return data;
     } catch (err) {
       console.error(err);
@@ -105,28 +103,12 @@ export const updateQtyThunk = (orderId, productId, qty) => {
   };
 };
 
-
-
 // REDUCER
 
 export default function (state = [], action) {
   switch (action.type) {
-    case ADD_ITEM: {
-      let found = false;
-      const newCart = state.map((product) => {
-        if (product.productId === action.orderProduct.productId) {
-          found = true;
-          return action.orderProduct;
-        } else {
-          return product;
-        }
-      });
-      if (!found) {
-        return [...state, action.orderProduct];
-      } else {
-        return newCart;
-      }
-    }
+    case ADD_ITEM:
+      return action.order;
     case GET_CART:
       return action.cart;
     default:

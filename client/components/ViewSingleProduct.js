@@ -18,7 +18,7 @@ const ViewSingleProduct = (props) => {
     setQty(+evt.target.value);
   };
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
     const orderProduct = {
       userId: user.id,

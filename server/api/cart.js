@@ -59,7 +59,10 @@ router.put('/', async (req, res, next) => {
         productId: req.body.productId,
       },
     });
-    await item.update({ quantity: req.body.qty });
+    await item.update({
+      quantity: req.body.qty,
+      productSubtotal: req.body.qty * item.unitPrice,
+    });
     res.sendStatus(204);
   } catch (err) {
     next(err);

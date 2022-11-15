@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import CartQtyDisplay from './CartQtyDisplay';
 
 const CartSubItem = (props) => {
-  const { orderId } = useSelector((state) => state);
+  const { orderId, auth } = useSelector((state) => state);
   const { item, handleDelete } = props;
-  console.log(item);
+  const roundedSubTotal = parseFloat(item.productSubtotal).toFixed(2);
+
   return (
     <div>
       <h2>
@@ -15,8 +16,9 @@ const CartSubItem = (props) => {
           item={item}
           orderId={orderId}
           handleDelete={handleDelete}
+          auth={auth}
         />
-        total {item.productSubtotal}
+        total ${roundedSubTotal}
       </h2>
       <button onClick={() => handleDelete(item.productId, orderId)}>
         Remove

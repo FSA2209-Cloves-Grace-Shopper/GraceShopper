@@ -109,6 +109,7 @@ router.post('/:productid', async (req, res, next) => {
         orderId: order.id,
       },
     });
+    console.log('CART', cart);
 
     res.send(cart);
   } catch (err) {
