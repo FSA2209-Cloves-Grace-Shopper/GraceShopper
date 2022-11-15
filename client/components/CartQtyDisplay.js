@@ -7,7 +7,7 @@ const CartQtyDisplay = (props) => {
   const [isEdited, setIsEdited] = useState(false);
   const [qty, setQty] = useState(item.quantity);
   const dispatch = useDispatch();
-
+  // console.log(item.name, item.quantity);
   const handleChange = async (event) => {
     // console.log(event.target);
     setQty(event.target.qty);
@@ -16,17 +16,19 @@ const CartQtyDisplay = (props) => {
   };
 
   const handleSubmit = async (event) => {
+    let value = +event.target.qty.value;
     event.preventDefault();
     // console.log(orderId);
-    if (+event.target.qty.value === 0) {
+    if (value === 0) {
       dispatch(deleteItemThunk(item.productId, orderId));
       await dispatch(getCartThunk(orderId));
     } else {
       const data = await dispatch(
-        updateQtyThunk(orderId, item.productId, +event.target.qty.value)
+        updateQtyThunk(orderId, item.productId, value)
       );
       setIsEdited(false);
       await dispatch(getCartThunk(orderId));
+      setQty(value);
     }
   };
 

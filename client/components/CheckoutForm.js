@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 import { string, z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { checkoutThunk } from '../store/cart';
+import history from '../history';
 
 // schema for form validation
 const schema = z.object({
@@ -13,21 +15,24 @@ const schema = z.object({
 });
 
 const CheckoutForm = ({ user = {}, isLoggedIn }) => {
+  const dispatch = useDispatch();
   const { register, handleSubmit, formState } = useForm({
     defaultValues: user,
     resolver: zodResolver(schema),
   });
 
   const { errors } = formState;
-  const dispatch = useDispatch();
 
-  const currentState = useSelector((state) => {
+  const { auth, orderId } = useSelector((state) => {
     return state;
   });
 
   const handleSave = (formVal) => {
-    if (currentState.auth.id) {
-    }
+    // console.log(user);
+    dispatch(checkoutThunk(formVal, orderId, auth.id));
+    history.push('/home');
+    // if (currentState.auth.id) {
+    // }
   };
 
   return (
@@ -39,7 +44,7 @@ const CheckoutForm = ({ user = {}, isLoggedIn }) => {
         <input
           type="text"
           {...register('firstName')}
-          defaultValue={currentState.auth.firstName}
+          defaultValue={auth.firstName}
         />
         <div style={{ color: 'red' }}>{errors.firstName?.message}</div>
       </div>
@@ -48,7 +53,7 @@ const CheckoutForm = ({ user = {}, isLoggedIn }) => {
         <input
           type="text"
           {...register('lastName')}
-          defaultValue={currentState.auth.lastName}
+          defaultValue={auth.lastName}
         />
 
         <div style={{ color: 'red' }}>{errors.lastName?.message}</div>
@@ -58,18 +63,14 @@ const CheckoutForm = ({ user = {}, isLoggedIn }) => {
         <input
           type="text"
           {...register('address')}
-          defaultValue={currentState.auth.address}
+          defaultValue={auth.address}
         />
 
         <div style={{ color: 'red' }}>{errors.address?.message}</div>
       </div>
       <div>
         <label>email</label>
-        <input
-          type="text"
-          {...register('email')}
-          defaultValue={currentState.auth.email}
-        />
+        <input type="text" {...register('email')} defaultValue={auth.email} />
 
         <div style={{ color: 'red' }}>{errors.email?.message}</div>
       </div>

@@ -52,7 +52,7 @@ class Routes extends Component {
                 render={() => <ViewAllProducts />}
               />
               <Route exact path="/checkoutpage" component={CheckoutPage} />
-              <Route path="/cart" render={() => <Cart />} />
+              <Route path="/cart" component={Cart} />
               <Route
                 exact
                 path="/products/:productid"
