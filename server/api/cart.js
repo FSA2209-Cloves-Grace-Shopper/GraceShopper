@@ -19,14 +19,12 @@ router.get('/', async (req, res, next) => {
     const cart = await OrderProduct.findAll({
       where: { orderId: req.query.orderId },
     });
-    // console.log(cart);
 
     const mappedCart = await Promise.all(
       cart.map(async (cur) => {
         const [img, name] = await getImg(cur.productId);
         cur.dataValues.imageUrl = img;
         cur.dataValues.name = name;
-        // console.log(cur);
         return cur;
       })
     );
@@ -38,7 +36,6 @@ router.get('/', async (req, res, next) => {
 
 // Remove cart item /api/cart/
 router.delete('/', async (req, res, next) => {
-  //console.log('REQ BODY', req.body);
   try {
     await OrderProduct.destroy({
       where: {

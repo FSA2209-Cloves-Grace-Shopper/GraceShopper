@@ -6,7 +6,6 @@ module.exports = router;
 
 // api/home
 router.get('/', async (req, res, next) => {
-  console.log('******', req.query);
   try {
     let order = await Order.findOne({
       where: {

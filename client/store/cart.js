@@ -52,7 +52,6 @@ export const addItemThunk = (orderProduct) => {
         });
         if (!found) cart.push(orderProduct); // if the product was not already in the cart i.e. found = false, we need to add a new order product to the cart
         window.localStorage.setItem('cart', JSON.stringify(cart));
-        console.log(JSON.parse(window.localStorage.getItem('cart')));
       }
     } catch (err) {
       console.error(err);

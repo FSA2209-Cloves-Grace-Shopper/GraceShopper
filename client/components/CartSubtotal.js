@@ -27,7 +27,6 @@ const CartSubtotal = () => {
     }
   };
 
-  console.log(cart);
   return (
     <>
       <div>CartSubtotal</div>
