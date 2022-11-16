@@ -9,7 +9,7 @@ import CheckoutPage from './components/CheckoutPage';
 import Footer from './components/Footer';
 import { getIdThunk } from './store/orderId';
 import Cart from './components/Cart';
-
+import EditProfilePage from './components/EditProfilePage';
 import { getCartThunk } from './store/cart';
 
 import SignupForm from './components/SignupForm';
@@ -46,6 +46,7 @@ class Routes extends Component {
           {isLoggedIn ? (
             <Switch>
               <Route path="/home" component={Home} />
+              <Route exact path="/editprofile" component={EditProfilePage} />
               <Route
                 exact
                 path="/products"

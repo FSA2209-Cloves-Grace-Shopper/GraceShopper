@@ -1,14 +1,13 @@
 import axios from 'axios';
 import history from '../history';
-import { authenticate } from './auth'
-
+import { authenticate } from './auth';
 
 /**
  * ACTION TYPES
  */
 
 const SET_USER = 'SET_USER';
-
+const EDIT_USER = 'EDIT_USER';
 /**
  * ACTION CREATORS
  */
@@ -22,14 +21,13 @@ const setUser = (user) => ({
  * THUNK CREATORS
  */
 
-
 export const addUser = (user) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post(`/auth/signup`, user);
       const login = 'login';
-      dispatch(authenticate(user.email, user.password, login));
-      history.push('/products')
+      dispatch();
+      history.push('/products');
       return data;
     } catch (e) {
       console.error(e);
