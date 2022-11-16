@@ -4,6 +4,7 @@ import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
 import ViewAllProducts from './components/ViewAllProducts';
+import AdminPage from './components/AdminPage';
 import ViewSingleProduct from './components/ViewSingleProduct';
 import CheckoutPage from './components/CheckoutPage';
 import Footer from './components/Footer';
@@ -53,7 +54,9 @@ class Routes extends Component {
                 render={() => <ViewAllProducts />}
               />
               <Route exact path="/checkoutpage" component={CheckoutPage} />
+              <Route exact path="/admin" component={AdminPage} />
               <Route path="/cart" component={Cart} />
+              AdminPage
               <Route
                 exact
                 path="/products/:productid"

@@ -11,11 +11,18 @@ const schema = z.object({
   lastName: string().min(1, { message: 'Last name is required' }),
   email: string().email(),
   address: string().min(1, { message: 'Address is required' }),
+  password: string(),
 });
 
 const EditProfileForm = ({ user = {}, isLoggedIn }) => {
   const { register, handleSubmit, formState } = useForm({
-    defaultValues: user,
+    defaultValues: {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      address: user.address,
+      email: user.email,
+      password: '',
+    },
     resolver: zodResolver(schema),
   });
 
@@ -28,7 +35,10 @@ const EditProfileForm = ({ user = {}, isLoggedIn }) => {
 
   const handleSave = (formVal) => {
     formVal.id = currentState.auth.id;
-    // console.log(formVal);
+    if (formVal.password.length < 1) {
+      delete formVal.password;
+    }
+
     dispatch(editUserThunk(formVal));
   };
 
@@ -37,48 +47,30 @@ const EditProfileForm = ({ user = {}, isLoggedIn }) => {
       <h1>Edit Profile</h1>
       <div>
         <label>First Name</label>
-        <input
-          type="text"
-          {...register('firstName')}
-          defaultValue={user.firstName}
-        />
+        <input type="text" {...register('firstName')} />
         <div style={{ color: 'red' }}>{errors.firstName?.message}</div>
       </div>
       <div>
         <label>Last Name</label>
-        <input
-          type="text"
-          {...register('lastName')}
-          defaultValue={user.lastName}
-        />
-
+        <input type="text" {...register('lastName')} />
         <div style={{ color: 'red' }}>{errors.lastName?.message}</div>
       </div>
       <div>
         <label>Address</label>
-        <input
-          type="text"
-          {...register('address')}
-          defaultValue={user.address}
-        />
-
+        <input type="text" {...register('address')} />
         <div style={{ color: 'red' }}>{errors.address?.message}</div>
       </div>
       <div>
         <label>email</label>
-        <input type="text" {...register('email')} defaultValue={user.email} />
-
+        <input type="text" {...register('email')} />
         <div style={{ color: 'red' }}>{errors.email?.message}</div>
       </div>
-      {user.id === currentState.auth.id ? (
-        <div>
-          <label>password</label>
-          <input type="text" {...register('password')} />
-          <div style={{ color: 'red' }}>{errors.password?.message}</div>
-        </div>
-      ) : (
-        <></>
-      )}
+      <div>
+        <label>Password (Optional)</label>
+        <input type="text" {...register('password')} />
+        <div style={{ color: 'red' }}>{errors.password?.message}</div>
+      </div>
+
       <div>
         <button type="submit">Confirm Edit</button>
       </div>
