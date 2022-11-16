@@ -8,7 +8,7 @@ const CartQtyDisplay = (props) => {
   const [qty, setQty] = useState(item.quantity);
 
   const dispatch = useDispatch();
-  // console.log(item.name, item.quantity);
+
   const handleChange = async (event) => {
     setQty(event.target.qty);
     let isEqual = +event.target.value !== item.quantity;
@@ -16,9 +16,7 @@ const CartQtyDisplay = (props) => {
   };
 
   const handleSubmit = async (event) => {
-    let value = +event.target.qty.value;
     event.preventDefault();
-    
     if (auth.id) {
       if (+event.target.qty.value === 0) {
         handleDelete(item.productId, orderId);
@@ -51,12 +49,7 @@ const CartQtyDisplay = (props) => {
   };
 
   return (
-    <form
-      key={props.key}
-      onSubmit={handleSubmit}
-      name="qtyForm"
-      id={`${item.productId}`}
-    >
+    <form onSubmit={handleSubmit} name="qtyForm" id={`${item.productId}`}>
       <input
         type="number"
         name="qty"
