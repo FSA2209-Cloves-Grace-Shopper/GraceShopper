@@ -51,7 +51,12 @@ const CartQtyDisplay = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} name="qtyForm" id={`${item.productId}`}>
+    <form
+      key={props.key}
+      onSubmit={handleSubmit}
+      name="qtyForm"
+      id={`${item.productId}`}
+    >
       <input
         type="number"
         name="qty"
