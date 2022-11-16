@@ -39,6 +39,7 @@ router.put('/:userId', async (req, res, next) => {
       where: {
         id: req.params.userId,
       },
+      individualHooks: true,
       returning: true,
     });
     res.send(updateUser[1][0]);
