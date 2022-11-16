@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getCartThunk, deleteItemThunk } from '../store/cart';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import CartQtyDisplay from './CartQtyDisplay';
 
 const CartSubItem = (props) => {
-  const dispatch = useDispatch();
   const { orderId, auth } = useSelector((state) => state);
-  const { item } = props;
-
-  const handleDelete = async (productId, orderId) => {
-    await dispatch(deleteItemThunk(productId, orderId));
-    dispatch(getCartThunk(orderId));
-  };
+  const { item, handleDelete } = props;
+  const roundedSubTotal = parseFloat(item.productSubtotal).toFixed(2);
 
   return (
     <div>
@@ -24,7 +18,7 @@ const CartSubItem = (props) => {
           handleDelete={handleDelete}
           auth={auth}
         />
-        total {item.productSubtotal}
+        total ${roundedSubTotal}
       </h2>
       <button onClick={() => handleDelete(item.productId, orderId)}>
         Remove
