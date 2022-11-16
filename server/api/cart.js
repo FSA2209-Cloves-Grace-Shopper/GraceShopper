@@ -1,10 +1,13 @@
 const router = require('express').Router();
-const { models: { OrderProduct, Product } } = require('../db');
+
+const {
+  models: { OrderProduct, Product, Order, User },
+} = require('../db');
+
 const { requireToken } = require('./gatekeepingMiddleware');
+
 module.exports = router;
 // api/cart
-
-
 
 router.get('/', requireToken, async (req, res, next) => {
   const getImg = async (pid) => {
@@ -64,6 +67,30 @@ router.put('/', requireToken, async (req, res, next) => {
       productSubtotal: req.body.qty * item.unitPrice,
     });
     res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// close order and open new one
+router.post('/', async (req, res, next) => {
+  const { orderId, userId } = req.body;
+  try {
+    const order = await Order.findOne({
+      where: {
+        completed: false,
+        userId,
+      },
+    });
+    console.log('before', order.completed);
+    order.completed = true;
+    await order.save();
+    console.log('after', order.completed);
+    const newOrder = await Order.create();
+    newOrder.userId = userId;
+    newOrder.completed = false;
+    await newOrder.save();
+    res.send(newOrder);
   } catch (err) {
     next(err);
   }

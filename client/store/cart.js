@@ -122,13 +122,19 @@ export const updateQtyThunk = (orderId, productId, qty) => {
   };
 };
 
-export const checkoutThunk = (user) => {
+export const checkoutThunk = (form, orderId, userId) => {
+  // console.log(user);
   return async (dispatch) => {
     try {
-      const { data } = await axios.get('/api/cart', {
-        data: { productId, orderId },
+      await axios.post('/api/checkoutPage', {
+        firstName: form.firstName,
+        lastName: form.lastName,
+        address: form.address,
+        email: form.email,
+        orderId,
+        userId,
       });
-      dispatch(getCart(orderId));
+      const { data } = axios.post('/api/cart', { orderId, userId });
       return data;
     } catch (err) {
       console.error(err);
