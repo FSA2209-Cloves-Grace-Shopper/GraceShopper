@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize')
 const pkg = require('../../package.json')
+// requires '../secrets', which makes process.env.DATABASE_URL available and seeds that connected db on Render.com
+// if (process.env.NODE_ENV !== 'production') require('../secrets') 
 
 const databaseName = pkg.name + (process.env.NODE_ENV === 'test' ? '-test' : '')
 
