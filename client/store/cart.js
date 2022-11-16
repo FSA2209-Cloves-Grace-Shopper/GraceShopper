@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const TOKEN = "token";
+
 // ACTIONS
 const GET_CART = 'GET_CART';
 const SET_CART = 'SET_CART';
@@ -8,9 +10,9 @@ const REMOVE_ITEM = 'REMOVE_ITEM';
 const UPDATE_QUANTITY = 'UPDATE_QUANTITY';
 
 //ACTION CREATORS
-const addItem = (orderProduct) => ({
+const addItem = (order) => ({
   type: ADD_ITEM,
-  orderProduct,
+  order,
 });
 
 export const getCart = (cart) => ({
@@ -39,7 +41,7 @@ export const addItemThunk = (orderProduct) => {
         const cart = JSON.parse(window.localStorage.getItem('cart'));
 
         let found = false;
-        // This map fucntion will look to see if the product already exists in the cart, and will update it if so
+        // This map function will look to see if the product already exists in the cart, and will update it if so
         cart.map((currentProduct) => {
           if (currentProduct.productId === orderProduct.productId) {
             currentProduct.quantity += orderProduct.quantity;
@@ -58,11 +60,19 @@ export const addItemThunk = (orderProduct) => {
     }
   };
 };
+
 // - get cart thunk
 export const getCartThunk = (orderId) => {
+  // added const token
+  const token = window.localStorage.getItem(TOKEN);
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`/api/cart`, { params: { orderId } });
+      const { data } = await axios.get(`/api/cart`, { 
+        params: { orderId },
+        headers: {
+          authorization: token
+        }
+     });
 
       dispatch(getCart(data));
       return data;
@@ -74,10 +84,14 @@ export const getCartThunk = (orderId) => {
 
 // - delete item thunk
 export const deleteItemThunk = (productId, orderId) => {
+  const token = window.localStorage.getItem(TOKEN);
   return async (dispatch) => {
     try {
       const { data } = await axios.delete('/api/cart', {
         data: { productId, orderId },
+        headers: {
+          authorization: token
+        }
       });
       dispatch(getCart(orderId));
       return data;
@@ -89,14 +103,18 @@ export const deleteItemThunk = (productId, orderId) => {
 
 //update quant thunk
 export const updateQtyThunk = (orderId, productId, qty) => {
+  const token = window.localStorage.getItem(TOKEN);
   return async (dispatch) => {
     try {
       const { data } = await axios.put('/api/cart', {
         productId,
         orderId,
         qty,
+      }, {
+        headers: {
+          authorization: token
+        },
       });
-
       return data;
     } catch (err) {
       console.error(err);
@@ -128,22 +146,8 @@ export const checkoutThunk = (form, orderId, userId) => {
 
 export default function (state = [], action) {
   switch (action.type) {
-    case ADD_ITEM: {
-      let found = false;
-      const newCart = state.map((product) => {
-        if (product.productId === action.orderProduct.productId) {
-          found = true;
-          return action.orderProduct;
-        } else {
-          return product;
-        }
-      });
-      if (!found) {
-        return [...state, action.orderProduct];
-      } else {
-        return newCart;
-      }
-    }
+    case ADD_ITEM:
+      return action.order;
     case GET_CART:
       return action.cart;
     default:

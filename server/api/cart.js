@@ -1,11 +1,15 @@
 const router = require('express').Router();
+
 const {
   models: { OrderProduct, Product, Order, User },
 } = require('../db');
+
+const { requireToken } = require('./gatekeepingMiddleware');
+
 module.exports = router;
 // api/cart
 
-router.get('/', async (req, res, next) => {
+router.get('/', requireToken, async (req, res, next) => {
   const getImg = async (pid) => {
     const prod = await Product.findOne({
       where: {
@@ -35,7 +39,7 @@ router.get('/', async (req, res, next) => {
 });
 
 // Remove cart item /api/cart/
-router.delete('/', async (req, res, next) => {
+router.delete('/', requireToken, async (req, res, next) => {
   try {
     await OrderProduct.destroy({
       where: {
@@ -50,8 +54,7 @@ router.delete('/', async (req, res, next) => {
 });
 
 // Update cart item qty /api/cart
-router.put('/', async (req, res, next) => {
-  console.log('REQ BODY', req.body);
+router.put('/', requireToken, async (req, res, next) => {
   try {
     const item = await OrderProduct.findOne({
       where: {
@@ -59,7 +62,10 @@ router.put('/', async (req, res, next) => {
         productId: req.body.productId,
       },
     });
-    await item.update({ quantity: req.body.qty });
+    await item.update({
+      quantity: req.body.qty,
+      productSubtotal: req.body.qty * item.unitPrice,
+    });
     res.sendStatus(204);
   } catch (err) {
     next(err);

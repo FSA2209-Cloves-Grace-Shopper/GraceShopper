@@ -74,6 +74,9 @@ router.post('/', requireToken, isAdmin, async (req, res, next) => {
   }
 });
 
+
+// Add a product to cart /api/products/:id
+
 router.post('/:productid', async (req, res, next) => {
   try {
     const order = await Order.findOne({
@@ -109,6 +112,7 @@ router.post('/:productid', async (req, res, next) => {
         orderId: order.id,
       },
     });
+    console.log('CART', cart);
 
     res.send(cart);
   } catch (err) {

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { updateQtyThunk, deleteItemThunk, getCartThunk } from '../store/cart';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateQtyThunk, getCartThunk, getCart } from '../store/cart';
 
 const CartQtyDisplay = (props) => {
-  const { item, orderId } = props;
+  const { item, orderId, auth, handleDelete } = props;
   const [isEdited, setIsEdited] = useState(false);
   const [qty, setQty] = useState(item.quantity);
+
   const dispatch = useDispatch();
   // console.log(item.name, item.quantity);
   const handleChange = async (event) => {
-    // console.log(event.target);
     setQty(event.target.qty);
     let isEqual = +event.target.value !== item.quantity;
     await setIsEdited(isEqual);
@@ -18,22 +18,40 @@ const CartQtyDisplay = (props) => {
   const handleSubmit = async (event) => {
     let value = +event.target.qty.value;
     event.preventDefault();
-    // console.log(orderId);
-    if (value === 0) {
-      dispatch(deleteItemThunk(item.productId, orderId));
-      await dispatch(getCartThunk(orderId));
+    
+    if (auth.id) {
+      if (+event.target.qty.value === 0) {
+        handleDelete(item.productId, orderId);
+      } else {
+        await dispatch(
+          updateQtyThunk(orderId, item.productId, +event.target.qty.value)
+        );
+        setIsEdited(false);
+        await dispatch(getCartThunk(orderId));
+      }
     } else {
-      const data = await dispatch(
-        updateQtyThunk(orderId, item.productId, value)
-      );
-      setIsEdited(false);
-      await dispatch(getCartThunk(orderId));
-      setQty(value);
+      if (+event.target.qty.value === 0) {
+        handleDelete(item.productId, orderId);
+      } else {
+        let cart = JSON.parse(window.localStorage.getItem('cart'));
+        cart = cart.map((cartItem) => {
+          if (cartItem.productId === +event.target.id) {
+            cartItem.quantity = +event.target.qty.value;
+            cartItem.productSubtotal = +cartItem.unitPrice * cartItem.quantity;
+            return cartItem;
+          } else {
+            return cartItem;
+          }
+        });
+        window.localStorage.setItem('cart', JSON.stringify(cart));
+        dispatch(getCart(cart));
+        setIsEdited(false);
+      }
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} name="qtyForm" id={`${item.productId}`}>
       <input
         type="number"
         name="qty"

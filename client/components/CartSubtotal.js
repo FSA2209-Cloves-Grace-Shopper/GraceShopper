@@ -36,7 +36,7 @@ const CartSubtotal = () => {
           {cart.map((item, i) => {
             return (
               <div key={i}>
-                <CartSubItem item={item} />
+                <CartSubItem handleDelete={handleDelete} item={item} />
               </div>
             );
           })}
