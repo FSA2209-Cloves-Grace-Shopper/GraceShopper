@@ -11,18 +11,19 @@ const CartSubItem = (props) => {
     <div>
       <h2>
         <span>{item.name}</span>
-        <span>${item.unitPrice}</span>
+        <span> - ${item.unitPrice}</span>
         <CartQtyDisplay
           item={item}
           orderId={orderId}
           handleDelete={handleDelete}
           auth={auth}
         />
-        total ${roundedSubTotal}
+        Subtotal - ${roundedSubTotal}
       </h2>
       <button onClick={() => handleDelete(item.productId, orderId)}>
         Remove
       </button>
+      <hr />
     </div>
   );
 };

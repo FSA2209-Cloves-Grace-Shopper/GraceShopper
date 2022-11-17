@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import CartSubItem from './CartSubItem';
 import { getCartThunk, deleteItemThunk, getCart } from '../store/cart';
@@ -6,6 +6,16 @@ import { getCartThunk, deleteItemThunk, getCart } from '../store/cart';
 const CartSubtotal = () => {
   const dispatch = useDispatch();
   let { orderId, cart, auth } = useSelector((state) => state);
+
+  const [cartTotal, setCartTotal] = useState(0);
+
+  const getCartTotal = (cart) => {
+    let total = 0;
+    cart.forEach((item) => {
+      total += +item.productSubtotal;
+    });
+    return total;
+  };
 
   useEffect(() => {
     if (auth.id) {
@@ -30,7 +40,6 @@ const CartSubtotal = () => {
 
   return (
     <>
-      <div>CartSubtotal</div>
       {cart.length > 0 ? (
         <div>
           {cart.map((item, i) => {
@@ -40,6 +49,7 @@ const CartSubtotal = () => {
               </div>
             );
           })}
+          <h2>Grand Total - ${parseFloat(getCartTotal(cart)).toFixed(2)}</h2>
         </div>
       ) : (
         <strong>Your Cart is Empty!</strong>
