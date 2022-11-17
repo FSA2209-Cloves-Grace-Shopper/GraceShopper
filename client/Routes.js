@@ -46,6 +46,7 @@ class Routes extends Component {
         <div id="content-wrap">
           {isLoggedIn ? (
             <Switch>
+              <Route path="/admin" component={AdminPage} />
               <Route path="/home" component={Home} />
               <Route exact path="/editprofile" component={EditProfilePage} />
               <Route

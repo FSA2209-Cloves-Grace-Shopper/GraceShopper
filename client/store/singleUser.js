@@ -69,6 +69,7 @@ export const adminGetUser = (email) => {
       });
 
       dispatch(agitUser(data));
+      return data;
     } catch (e) {
       console.error(e);
     }

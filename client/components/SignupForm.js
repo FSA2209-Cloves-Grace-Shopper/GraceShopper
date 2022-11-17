@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 import { string, z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { addUser } from '../store/users'
+import { addUser } from '../store/users';
 
 // schema for form validation
 const schema = z.object({
@@ -11,7 +11,9 @@ const schema = z.object({
   lastName: string().min(1, { message: 'Last name is required' }),
   email: string().email(),
   address: string().min(1, { message: 'Address is required' }),
-  password: string().min(8, { message: 'Password is required (8 Character Minimum)' }),
+  password: string().min(8, {
+    message: 'Password is required (8 Character Minimum)',
+  }),
 });
 
 const SignupForm = ({ user = {}, isLoggedIn }) => {
@@ -30,13 +32,10 @@ const SignupForm = ({ user = {}, isLoggedIn }) => {
   return (
     <form className="signup-form" onSubmit={handleSubmit(onSave)}>
       <h1>Signup Form</h1>
-    
+
       <div>
-      <h3>Shipping address:</h3>
         <label>First Name</label>
         <input type="text" {...register('firstName')} />
-        
-
         <div style={{ color: 'red' }}>{errors.firstName?.message}</div>
       </div>
 
