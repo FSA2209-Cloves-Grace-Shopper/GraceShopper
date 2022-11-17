@@ -999,7 +999,6 @@ const userData = [
   {"firstName":"Neely","lastName":"Chang","email":"nchangro@arizona.edu","address":"268 Grover Way","password":"hewh1QAUm"},
   {"firstName":"Daron","lastName":"Parkes","email":"dparkesrp@foxnews.com","address":"133 Mariners Cove Hill","password":"3flcovFb"},
   {"firstName":"Kath","lastName":"McBoyle","email":"kmcboylerq@businessinsider.com","address":"7 Luster Street","password":"laOY2g8W"},
-  {"firstName":"Emalia","lastName":"Henricsson","email":"ehenricssonrr@omniture.com","address":"39 Main Way","password":"dGObKf6"}
 ];
 
 module.exports = userData;
