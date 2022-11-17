@@ -11,15 +11,19 @@ const Cart = (props) => {
 
   return (
     <>
-      <div>Cart</div>
-      <Link to="/products">Continue Shopping</Link>
+      <div>
+        <h1>Cart</h1>
+        <br />
+        <Link to="/products">Continue Shopping</Link>
+      </div>
       <div>
         <div className={'container'}>
           <CartSubtotal />
+
+          <a href="/checkoutpage">
+            <button>Checkout</button>
+          </a>
         </div>
-        <a href="/checkoutpage">
-          <button>Checkout</button>
-        </a>
       </div>
       <div style={{ background: 'grey' }}></div>
     </>
