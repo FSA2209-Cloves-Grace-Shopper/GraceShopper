@@ -28,8 +28,11 @@ const CartQtyDisplay = (props) => {
         await dispatch(getCartThunk(orderId));
       }
     } else {
-      if (+event.target.qty.value === 0) {
-        handleDelete(item.productId, orderId);
+      if (+event.target.qty.value <= 0) {
+        window.alert(
+          'Please click remove if you would like to remove this item from your cart. '
+        );
+        // handleDelete(item.productId, orderId);
       } else {
         let cart = JSON.parse(window.localStorage.getItem('cart'));
         cart = cart.map((cartItem) => {

@@ -42,7 +42,7 @@ const CartSubtotal = () => {
           })}
         </div>
       ) : (
-        <div>Your Cart is Empty!</div>
+        <strong>Your Cart is Empty!</strong>
       )}
     </>
   );

@@ -5,6 +5,7 @@ import { string, z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { checkoutThunk } from '../store/cart';
 import history from '../history';
+import ConfirmedOrder from './ConfirmedOrder';
 
 // schema for form validation
 const schema = z.object({
@@ -14,7 +15,7 @@ const schema = z.object({
   address: string().min(1, { message: 'Address is required' }),
 });
 
-const CheckoutForm = ({ user = {}, isLoggedIn }) => {
+const CheckoutForm = ({ user = {}, isLoggedIn, handleComplete }) => {
   const dispatch = useDispatch();
   const currentState = useSelector((state) => {
     return state;
@@ -31,11 +32,8 @@ const CheckoutForm = ({ user = {}, isLoggedIn }) => {
   });
 
   const handleSave = (formVal) => {
-    // console.log(user);
     dispatch(checkoutThunk(formVal, orderId, auth.id));
-    history.push('/home');
-    // if (currentState.auth.id) {
-    // }
+    handleComplete(true);
   };
 
   useEffect(() => {
@@ -48,52 +46,54 @@ const CheckoutForm = ({ user = {}, isLoggedIn }) => {
   });
 
   return (
-    <form onSubmit={handleSubmit(handleSave)}>
-      <h1>Checkout Form</h1>
-      <div>
-        <div>Shipping address:</div>
-        <label>First Name</label>
-        <input
-          type="text"
-          {...register('firstName')}
-          // defaultValue={currentState.auth.firstName}
-        />
-        <div style={{ color: 'red' }}>{errors.firstName?.message}</div>
-      </div>
-      <div>
-        <label>Last Name</label>
-        <input
-          type="text"
-          {...register('lastName')}
-          // defaultValue={currentState.auth.lastName}
-        />
+    <>
+      <form onSubmit={handleSubmit(handleSave)}>
+        <h1>Checkout Form</h1>
+        <div>
+          <div>Shipping address:</div>
+          <label>First Name</label>
+          <input
+            type="text"
+            {...register('firstName')}
+            // defaultValue={currentState.auth.firstName}
+          />
+          <div style={{ color: 'red' }}>{errors.firstName?.message}</div>
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input
+            type="text"
+            {...register('lastName')}
+            // defaultValue={currentState.auth.lastName}
+          />
 
-        <div style={{ color: 'red' }}>{errors.lastName?.message}</div>
-      </div>
-      <div>
-        <label>Address</label>
-        <input
-          type="text"
-          {...register('address')}
-          // defaultValue={currentState.auth.address}
-        />
+          <div style={{ color: 'red' }}>{errors.lastName?.message}</div>
+        </div>
+        <div>
+          <label>Address</label>
+          <input
+            type="text"
+            {...register('address')}
+            // defaultValue={currentState.auth.address}
+          />
 
-        <div style={{ color: 'red' }}>{errors.address?.message}</div>
-      </div>
-      <div>
-        <label>email</label>
-        <input
-          type="text"
-          {...register('email')}
-          // defaultValue={currentState.auth.email}
-        />
+          <div style={{ color: 'red' }}>{errors.address?.message}</div>
+        </div>
+        <div>
+          <label>email</label>
+          <input
+            type="text"
+            {...register('email')}
+            // defaultValue={currentState.auth.email}
+          />
 
-        <div style={{ color: 'red' }}>{errors.email?.message}</div>
-      </div>
-      <div>
-        <button type="submit">Confirm Order</button>
-      </div>
-    </form>
+          <div style={{ color: 'red' }}>{errors.email?.message}</div>
+        </div>
+        <div>
+          <button type="submit">Confirm Order</button>
+        </div>
+      </form>
+    </>
   );
 };
 
