@@ -50,7 +50,6 @@ const CheckoutForm = ({ user = {}, isLoggedIn, handleComplete }) => {
       <form onSubmit={handleSubmit(handleSave)}>
         <h1>Checkout Form</h1>
         <div>
-          <div>Shipping address:</div>
           <label>First Name</label>
           <input
             type="text"

@@ -22,7 +22,7 @@ const EditProfileForm = ({ user = {}, isLoggedIn }) => {
     email: user.email,
     password: '',
   });
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState, setValue } = useForm({
     defaultValues: currState,
     resolver: zodResolver(schema),
   });
@@ -44,11 +44,17 @@ const EditProfileForm = ({ user = {}, isLoggedIn }) => {
   };
 
   const handleClick = async (event) => {
-    // event.preventDefault();
-    await dispatch(adminGetUser(event.target.input.value));
-    await setCurrState(currentState.singleUser);
-    console.log(currentState.singleUser);
+    event.preventDefault();
+    const newUser = await dispatch(adminGetUser(event.target.input.value));
+    setCurrState(newUser);
   };
+
+  useEffect(() => {
+    setValue('firstName', currState.firstName);
+    setValue('lastName', currState.lastName);
+    setValue('address', currState.address);
+    setValue('email', currState.email);
+  });
 
   return (
     <>
@@ -88,7 +94,7 @@ const EditProfileForm = ({ user = {}, isLoggedIn }) => {
         <form onSubmit={handleClick}>
           <label>Enter email to select user</label>
           <input type="text" name="input" />
-          <button type="submit">Button</button>
+          <button type="submit">Find User</button>
         </form>
       ) : (
         <></>

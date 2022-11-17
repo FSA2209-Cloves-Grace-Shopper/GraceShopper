@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../store';
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
+const Navbar = ({ handleClick, isLoggedIn, auth }) => (
   <div>
     <h1>The Riff Rack</h1>
     <nav>
@@ -20,6 +20,9 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           <Link to="/home">Home</Link>
           <Link to="/products">Products</Link>
           <Link to="/cart">Cart</Link>
+          <Link to="/editprofile">Profile</Link>
+          <Link to="/admin">Admin</Link>
+
           <a href="#" onClick={handleClick}>
             Logout
           </a>
