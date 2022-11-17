@@ -9,6 +9,13 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
     <nav>
       {isLoggedIn ? (
         <div>
+          <Link to="/home">
+            <img
+              className="logo"
+              src="https://i.imgur.com/Ide3Nie.png"
+              alt="Logo"
+            />
+          </Link>
           {/* The navbar will show these links after you log in */}
           <Link to="/home">Home</Link>
           <Link to="/products">Products</Link>
@@ -19,6 +26,13 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
         </div>
       ) : (
         <div>
+          <Link to="/home">
+            <img
+              className="logo"
+              src="https://i.imgur.com/Ide3Nie.png"
+              alt="Logo"
+            />
+          </Link>
           {/* The navbar will show these links before you log in */}
           <Link to="/products">Products</Link>
           <Link to="/cart">Cart</Link>

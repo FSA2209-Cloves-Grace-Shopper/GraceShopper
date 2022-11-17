@@ -1,9 +1,29 @@
 body {
   font-family: sans-serif;
-  background-image: linear-gradient(to right top, #e7f1dd, #d4e2cc, #c2d4bc, #afc5ad, #9cb79e);
+  background-image: linear-gradient(to right top, #c39a50, #bc954e, #b58f4b, #ae8a49, #a78547);
 }
 
-a {
+.logo{
+  height: 70px;
+  width: 70px;
+}
+
+h1 {
+  background-color: rgba(184, 129, 129, 0.822);
+  box-shadow: 5px 2px 30px rgb(255, 0, 0);
+  border-radius: 15px;
+  padding: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: solid 2px rgb(232, 56, 56) ;
+  font-family: Snell Roundhand,
+  cursive;
+  color: white;
+  text-align: center;
+  display: inline-block;
+}
+
+  a {
   text-decoration: none;
 }
 
@@ -21,9 +41,12 @@ label {
 
 .each-product-box {
   border: 1px solid rgb(54, 53, 57);
+  border-radius: 15px;
   text-align: center;
   padding: 0rem 0rem 1rem;
   background-image: linear-gradient(to right top, #efefef, #eeeeee, #ededed, #edebec, #eceaea);
+  min-height: 97%;
+  box-shadow: 5px 2px 30px;
 }
 
 .all-products-name {
@@ -77,6 +100,7 @@ nav {
     #000000
   );
   border: 3px solid #a39b9bb9;
+  box-shadow: 5px 2px 30px;
 }
 
 nav a {
@@ -84,6 +108,30 @@ nav a {
   margin: 1em;
   color: rgb(255, 247, 0);
   font-size: large;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: white
+}
+
+button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 1px;
+  border-radius: 15px;
+  color: white;
+  background-color: #ac5326;
+}
+
+button:hover{
+  background-color: yellow;
+  color: black;
+}
+
+a {
+  color: rgb(255, 247, 0);
+  text-decoration: underline;
 }
 
 form div {
@@ -111,4 +159,10 @@ form div {
 
 .container {
   border-style: solid;
+  background-color: lightgrey;
+  border-radius: 15px;
+  display: inline-block;
+  margin: 8px;
+  padding: 8px;
+  box-shadow: 5px 2px 30px;
 }
